@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가상 클래스, 가상 요소</title>
+    <style>
+        :root{
+            --main-color: violet;
+            --pane-padding: 5px 42px;
+        }
+
+        html{
+            background-color: pink;
+        }
+        body{
+            background: var(--main-color);
+        }
+        li:first-child{
+            /* li 형제 요소 그룹 중 첫 번째 요소가 li면, color: red 적용*/
+            color: red;
+        }
+        span:last-child{
+            color: pink;
+        }
+        li:nth-child(3){
+            color: teal;
+        }
+        li:nth-of-type(3){
+            /* li 형제 요소 중에서 3번째 요소에 */
+            color: yellow;
+        }
+        ul :nth-child(5){
+            /* ul의 자식 요소 중에서 3번째 요소에 */
+            color: blue;
+        }
+        li:not(:first-child){
+            background: orange;
+        }
+        li{
+            list-style:none;
+        }
+        li::before{
+            content: '>'
+        }
+        input::placeholder{
+            color: teal;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>hi</li>
+        <li>hi</li>
+        <li>hi</li>
+        <span>hi</span>
+        <span>hi</span>
+    </ul>
+    <ul>
+        <li>hi</li>
+        <li>hi</li>
+        <li>hi</li>
+        <span>hi</span>
+        <span>hi</span>
+    </ul><ul>
+        <li>hi</li>
+        <li>hi</li>
+        <li>hi</li>
+        <span>hi</span>
+        <span>hi</span>
+    </ul>
+
+    <input type="text" placeholder="hi"/>
+</body>
+</html>
