@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>박스모델</title>
+    <style>
+        body{
+            margin:0px;
+        }
+        div{
+            background: skyblue;
+        }
+        .width-auto{
+            width:auto;
+        }
+        .width-max-content{
+            width:max-content;
+            padding: 10px;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            border: 10px solid pink;
+            padding: 10px;
+        }
+        .widthboxsizing{
+            box-sizing: border-box;
+        }
+
+
+        p{
+            width: 50px;
+            height: 50px;
+            background-color: pink;
+            line-height: 50px;
+            text-align: center;
+        }
+        .a{
+            margin: 10px;
+        }
+        .b{
+            margin: 10px;
+        }
+        .c{
+            margin: 20px;
+        }
+        .wrap{
+            border: 1px solid black;
+            /* display: flow-root; */
+            /* display: inline-block; */
+            /* overflow: auto; */
+        }
+
+
+        .br{
+            width: 100px;
+            height:100px;
+            border: 1px solid black;
+        }
+        .bra{
+            border-radius: 100% 0% 0% 0%;
+        }
+        .brb{
+            border-radius: 100% 0% 100% 0%;
+        }
+        .brc{
+            border-radius:0% 50% 0% 50%
+        }
+        .brd{
+            height: 50px;
+            border-radius: 100px 100px 0px 0px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <span style="display: block">Box Model</span>
+    <div class="width-auto">안녕하세요</div>
+    <div class="width-max-content">안녕하세요</div>
+    <div class="box">안녕하세요</div>
+    <div class="box widthboxsizing">안녕하세요</div>
+
+    <span style="display: block">Margin Collapsing</span>
+    <p class="a">A</p>
+    <p class="b">B</p>
+    <div class="wrap">
+        <p class="c">C</p>
+    </div>
+
+    <span style="display: block">BorderRadius</span>
+    <div class="br bra"></div>
+    <div class="br brb"></div>
+    <div class="br brc"></div>
+    <div class="br brd"></div>
+</body>
+</html>
