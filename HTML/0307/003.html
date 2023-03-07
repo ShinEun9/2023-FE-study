@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pseudo-elements</title>
+    <style>
+      ul::after {
+        content: "";
+        /* display: block;
+        width: 20px;
+        height: 20px;
+        background-image: url(./login/img//icon-lock.svg);
+        background-repeat: no-repeat;
+        background-position: 0 0%;
+        background-size: 1em;
+        background-color: pink; */
+        /* background: url(./login/img//icon-lock.svg) no-repeat 0 0 / 1em; */
+      }
+      li::before {
+        content: "-";
+      }
+      li {
+        list-style: none;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>hi</li>
+      <li>hi</li>
+      <li>hi</li>
+    </ul>
+  </body>
+</html>
