@@ -1,12 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로그인 화면</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      p {
+        margin: 0;
+      }
+
+      a {
+        text-decoration: none;
+        color: #767676;
+        font-weight: 400;
+        font-size: 12px;
+      }
+      .wrap {
+        border-radius: 5px;
+        border: 1px solid #dbdbdb;
+        width: 350px;
+        height: 140px;
+        text-align: center;
+        padding: 19px 16px 18px;
+      }
+
+      .wrap .title {
+        text-align: start;
+        margin-bottom: 16px;
+        font-size: 12px;
+      }
+      .login-btn {
+        width: 318px;
+        height: 40px;
+        line-height: 40px;
+        vertical-align: center;
+        background-color: #711bff;
+        border-radius: 4px;
+        margin: auto;
+        margin-bottom: 16px;
+        color: white;
+        font-weight: 500;
+        font-size: 12px;
+      }
+      .login-btn > img {
+        width: 64px;
+        height: 18px;
+      }
+      .btns-left {
+        float: left;
+        width: 50%;
+        text-align: start;
+      }
+
+      .btns-left::before {
+        background: url("./img/icon-user.svg");
+        content: "";
+      }
+
+      .btns-left .id-find-btn::after {
+        content: "|";
+        margin-right: "4px";
+      }
+
+      .btns-right {
+        text-align: end;
+        float: right;
+        width: 50%;
+      }
+
+      .btns-right::before {
+        background: url("./img/icon-lock.svg");
+        content: "";
+      }
+    </style>
+  </head>
+  <body>
+    <section class="wrap">
+      <p class="title">더 편해진 위니브에 오신 것을 환영합니다.</p>
+      <a href="#">
+        <div class="login-btn">
+          <img src="./img/weniv-logo.svg" alt="위니브로고" />
+          로그인
+        </div>
+      </a>
+
+      <div class="btns-left">
+        <a href="#" class="id-find-btn">아이디</a>
+        <a href="#">비밀번호 찾기</a>
+      </div>
+      <div class="btns-right">
+        <a href="#"> 회원가입 </a>
+      </div>
+    </section>
+  </body>
 </html>
