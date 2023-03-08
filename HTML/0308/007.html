@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flex-shrink</title>
+    <style>
+      .flex-container {
+        background: #eee;
+        border: 2px solid #ddd;
+        margin-bottom: 10px;
+        height: 500px;
+
+        display: flex;
+      }
+
+      .flex-item {
+        background: skyblue;
+        border: 3px solid royalblue;
+        width: 200px;
+        height: 30px;
+        flex-shrink: 0; /* 크기 줄여도 고정 */
+      }
+
+      /* 
+      .flex-item:first-child {
+        flex-shrink: 1;
+      }
+      .flex-item:nth-child(2) {
+        flex-shrink: 4;
+      }
+
+      .flex-item:last-child {
+        flex-shrink: 16;
+      } */
+    </style>
+  </head>
+  <body>
+    <div class="flex-container">
+      <div class="flex-item">A</div>
+      <div class="flex-item">B</div>
+      <div class="flex-item">C</div>
+    </div>
+  </body>
+</html>

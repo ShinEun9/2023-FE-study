@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습3 - 레이아웃 만들기</title>
+    <style>
+      .wrap {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 10px;
+        height: 400px;
+      }
+      .wrap2 {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        flex-grow: 1;
+      }
+
+      header,
+      footer {
+        /* flex-direction: column으로 주축이 세로이므로 flex-basis: 50px은 세로크기  */
+        flex-basis: 50px;
+      }
+
+      header {
+        background-color: pink;
+      }
+
+      section {
+        background-color: yellow;
+        /* flex-direction: row 로 주축이 가로이므로 flex-basis: 300px은 가로크기  */
+        flex-basis: 300px;
+        flex-grow: 1;
+      }
+      aside {
+        background: slateblue;
+        flex-basis: 200px;
+      }
+      footer {
+        background: seagreen;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>header</header>
+      <div class="wrap2">
+        <section>section</section>
+        <aside>aside</aside>
+      </div>
+      <footer>footer</footer>
+    </div>
+  </body>
+</html>

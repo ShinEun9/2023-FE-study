@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flex</title>
+    <style>
+        *{
+            margin:0;
+        }
+
+        .flex-container {
+            display: flex;
+            background: #eee;
+            border: 2px solid #ddd;
+            margin-bottom: 10px;
+            height: 100px;
+        }
+
+        .flex-item {
+            background: skyblue;
+            border: 3px solid royalblue;
+        }
+        .flex-stretch{
+            align-items: flex-stretch;
+        }
+
+        .flex-start{
+            align-items: flex-start;
+        }
+
+        .center {
+            align-items: center;
+        }
+
+        .flex-end {
+            align-items: flex-end;
+        }
+
+
+    </style>
+  </head>
+  <body>
+    <!--블록 -->
+    <h1>flex 공부</h1>
+    <h2>블록</h1>
+    <h3></h3>
+    <div class="flex-container">
+      <div class="flex-item">A</div>
+      <div class="flex-item">B</div>
+      <div class="flex-item">C</div>
+    </div>
+
+    <h3>align-items: flex-stretch       // flex-stretch가 기본값</h3>
+    <div class="flex-container flex-stretch">
+        <div class="flex-item">A</div>
+        <div class="flex-item">B</div>
+        <div class="flex-item">C</div>
+    </div>
+
+    <h3>align-items: flex-start</h3>
+    <div class="flex-container flex-start">
+    <div class="flex-item">A</div>
+    <div class="flex-item">B</div>
+    <div class="flex-item">C</div>
+    </div>
+
+    <h3>align-items: center</h3>
+    <div class="flex-container center">
+      <div class="flex-item">A</div>
+      <div class="flex-item">B</div>
+      <div class="flex-item">C</div>
+    </div>
+    <h3>align-items: flex-end</h3>
+    <div class="flex-container flex-end">
+      <div class="flex-item">A</div>
+      <div class="flex-item">B</div>
+      <div class="flex-item">C</div>
+    </div>
+
+</html>
