@@ -1,9 +1,9 @@
 .card-item a {
-  width: 288px;
+  /* width: 288px; */
   display: block;
   /* 사진 위에 border-radius: 8px 8px 0px 0px 주기 위해서 
-        box를 이미지가 벗어났을 때, 안보이게 하겠다. 라는 의미 
-    */
+          box를 이미지가 벗어났을 때, 안보이게 하겠다. 라는 의미 
+      */
   overflow: hidden;
 
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
@@ -43,6 +43,7 @@
   word-break: break-all;
   margin: 12px 0 16px;
   line-height: 20px;
+  height: 40px;
 }
 
 .underline {
