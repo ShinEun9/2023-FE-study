@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flex: align-items, align-content, align-self</title>
+    <style>
+      /* 
+            flex item의 ‘교차 축’ 정렬을 제어하는 ‘align-items’.
+            flex item의 ‘독립적 교차 축’ 정렬을 제어하는 ‘align-self’.
+            flex item의 ‘여러 줄 교차 축’ 정렬과 간격을 제어하는 ‘align-content’. 
+      */
+
+      .wrap {
+        width: 300px;
+        height: 300px;
+        background: teal;
+
+        display: flex;
+        flex-wrap: wrap;
+        /*   align-items: center; */
+        align-content: flex-end;
+      }
+
+      .flex-item {
+        width: 100px;
+        height: 100px;
+        background: pink;
+      }
+
+      .flex-item:nth-child(3) {
+        align-self: flex-start;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <div class="flex-item">hi</div>
+      <div class="flex-item">hi</div>
+      <div class="flex-item">hi</div>
+      <div class="flex-item">hi</div>
+    </div>
+  </body>
+</html>
