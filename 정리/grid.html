@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>grid: align-content, align-items, align-self 공부</title>
+
+    <style>
+      .grid-container {
+        display: grid;
+        grid-template-rows: repeat(3, 100px);
+        grid-template-columns: repeat(3, 100px);
+        width: 400px;
+        height: 400px;
+        background: teal;
+        gap: 30px;
+
+        /*   div.grid-container안의 가상의? grid 콘텐츠 자체를 수직, 수평 정렬 */
+        /*   align-content 주석 처리, 해제하면서 차이점 개발자 도구로 확인하기 */
+        align-content: center;
+        /*   align-content: space-between; */
+        justify-content: center;
+
+        /*   직계 자식에 대한 수직, 수평 정렬 함 */
+        align-items: center;
+        justify-items: center;
+      }
+
+      .grid-item {
+        background: pink;
+        width: 80px;
+        height: 80px;
+        border: 5px solid black;
+        box-sizing: border-box;
+        font-size: 10px;
+      }
+
+      .grid-item:last-child {
+        align-self: end;
+        justify-self: end;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="grid-item">grid-item</div>
+      <div class="grid-item">grid-item</div>
+      <div class="grid-item">grid-item</div>
+      <div class="grid-item">grid-item</div>
+    </div>
+  </body>
+</html>
