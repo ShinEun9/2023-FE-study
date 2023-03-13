@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>버튼만들기 실습</title>
+    <style>
+      @font-face {
+        font-family: "Pretendard-Regular";
+        src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+          format("woff");
+        font-weight: 400;
+        font-style: normal;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+      body button {
+        margin-bottom: 10px;
+      }
+
+      [class^="btn"] {
+        width: 88px;
+        height: 32px;
+        background: #343f50;
+        box-shadow: inset 1px 1px #4a5568;
+        border: 1px solid #1a202c;
+        color: #cbd5df;
+        font-size: 12px;
+        font-family: Pretendard-Regular;
+      }
+
+      [class^="btn"]:hover {
+        color: white;
+        text-decoration: underline;
+        /* transition: color 3s, background-color 1s; */
+        transform: scale(1.1);
+        transition: all 5s;
+      }
+
+      .btn:disabled {
+        text-decoration: none;
+      }
+
+      .btn:active {
+        box-shadow: inset 1px 1px #262f3e;
+      }
+
+      .btn:disabled {
+        color: #4a5568;
+        background-color: #3a4556;
+        box-shadow: inset 1px 1px #3a4556;
+        border: 1px solid rgba(26, 32, 44, 0.2);
+      }
+
+      .btn-positive {
+        color: #439aff;
+      }
+
+      .btn-positive:hover {
+        background: #439aff;
+        border: 1px solid #439aff;
+        box-shadow: inset 1px 1px #73b4ff;
+        color: white;
+        text-decoration: underline;
+      }
+
+      .btn-positive:active {
+        box-shadow: inset 1px 1px #3b78be;
+      }
+
+      .btn-negative {
+        color: #eb5757;
+      }
+
+      .btn-negative:hover {
+        background: #eb5757;
+        border: 1px solid #eb5757;
+        box-shadow: inset 1px 1px #fd6f6f;
+        color: white;
+        text-decoration: underline;
+      }
+
+      .btn-negative:active {
+        box-shadow: inset 1px 1px #d94242;
+      }
+    </style>
+  </head>
+  <body>
+    <button type="button" class="btn">Button</button>
+    <button type="button" class="btn" disabled>Button</button>
+
+    <button type="button" class="btn-positive" disabled>Yes</button>
+    <button type="button" class="btn-negative" disabled>Del</button>
+  </body>
+</html>
