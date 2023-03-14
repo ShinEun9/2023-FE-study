@@ -1,0 +1,70 @@
+.a11y-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+.btn-hamburger {
+  width: 48px;
+  height: 48px;
+  border: 0;
+  background: none;
+  position: relative;
+  background-color: skyblue;
+  padding: 0;
+}
+
+.line {
+  display: block;
+}
+
+.line span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: black;
+  position: absolute;
+}
+
+.line span:first-child {
+  top: 15%;
+}
+
+.line span:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.line span:last-child {
+  top: 85%;
+}
+
+.btn-hamburger:hover .line {
+  transform: rotate(45deg);
+}
+
+.btn-hamburger:active .line {
+  transform: rotate(90deg);
+}
+
+.btn-hamburger:hover .line span:nth-child(1) {
+  top: 50%;
+  transform: translateY(50%) rotate(135deg);
+  transition: all 0.5s;
+}
+
+.btn-hamburger:hover .line span:nth-child(2) {
+  opacity: 0;
+  /* transition: all 0.3s; */
+}
+
+.btn-hamburger:hover .line span:nth-child(3) {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  transition: all 0.5s;
+}
