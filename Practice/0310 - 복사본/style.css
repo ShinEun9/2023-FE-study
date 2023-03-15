@@ -1,0 +1,41 @@
+h1,
+p {
+  margin: initial;
+  padding: initial;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background-image: url(./images/bg.png);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-box {
+  color: white;
+  background-color: #93572e;
+  padding: 55px 20px 30px 20px;
+  border-radius: 0 0 25px 25px;
+  position: relative;
+  width: 300px;
+  box-sizing: border-box;
+  box-shadow: 0px 10px 0 0 #3a2212;
+}
+
+.text-box > h1 {
+  margin-bottom: 15px;
+}
+
+.text-box > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@media (max-height: 629px) {
+  .wrap {
+    transform: scale(0.8);
+  }
+}
