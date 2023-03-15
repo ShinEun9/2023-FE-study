@@ -99,6 +99,18 @@ h3 {
   gap: 40px;
 }
 
+/*  후자 우선 법칙에 따라,,,, ? min-width도 적어줘야함? */
+/* @media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+  }
+  .container main {
+    border-right: 0px;
+    padding-right: 0px;
+    min-height: auto;
+  }
+} */
+
 .container main {
   flex-basis: 456px;
   flex-shrink: 0;
@@ -107,6 +119,18 @@ h3 {
   padding-right: 40px;
   min-height: calc(100vh - 120px);
   box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    gap: 0;
+  }
+  .container main {
+    border-right: 0px;
+    padding-right: 0px;
+    min-height: auto;
+  }
 }
 
 .container section {
