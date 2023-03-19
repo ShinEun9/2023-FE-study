@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        /* block요소의 width: auto  */
+        /* 인라인블록 요소의 width: auto  */
+        /* 이미지요소의 width: auto  */
+
+
+        div.width-auto {
+            background-color: orange;
+            width: auto;
+        }
+
+        span {
+            display: inline-block;
+            background-color: pink;
+            width: auto;
+        }
+
+        img {
+            display: block;
+            width: auto;
+            width: 50%;
+        }
+
+        img.img-ratio {
+            display: block;
+            width: 50%;
+            /* 원래는 72:35임 */
+            aspect-ratio: 3/1;
+        }
+
+        img.img-ratio-cover {
+            display: block;
+            width: 50%;
+            aspect-ratio: 3/1;
+            object-fit: cover;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .img-with-background {
+            width: 50%;
+            /* height:  */
+            background-image: url(https://github.com/stronger-deer/myBlog/blob/main/img/main-visual.jpg?raw=true);
+            /* background-position: top; */
+            background-size: cover;
+            padding-top: calc(width * 1 / 3);
+        }
+
+        .thumbnail {
+            box-shadow: inset 0 0 10px red;
+            position: relative;
+            /* width: auto; */
+            height: 0;
+            padding-top: 50%;
+            overflow: hidden;
+        }
+
+        .thumbnail img {
+            box-shadow: inset 0 0 10px blue;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="width-auto">hello</div>
+    <span>hi</span>
+    <img src="https://github.com/stronger-deer/myBlog/blob/main/img/main-visual.jpg?raw=true" alt="">
+    <br>
+
+    <img class="img-ratio" src="https://github.com/stronger-deer/myBlog/blob/main/img/main-visual.jpg?raw=true" alt="">
+    <br>
+
+    <img class="img-ratio-cover" src="https://github.com/stronger-deer/myBlog/blob/main/img/main-visual.jpg?raw=true"
+        alt="">
+    <br>
+
+    <div class="thumbnail">
+        <!-- <img src="https://github.com/stronger-deer/myBlog/blob/main/img/main-visual.jpg?raw=true"
+            alt="한 성인이 스케이트보드를 타고 있다" /> -->
+    </div>
+</body>
+
+</html>

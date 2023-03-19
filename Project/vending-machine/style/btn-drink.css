@@ -1,0 +1,74 @@
+/* button */
+.btn-drink {
+  width: 94px;
+  height: 130px;
+  padding: 11px;
+  border-radius: 10px;
+  background: white;
+  filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
+  border: none;
+  outline: none;
+}
+
+.btn-drink:not(.sold-out) {
+  cursor: pointer;
+}
+
+.btn-drink > img {
+  width: 36px;
+  height: 65px;
+  margin-bottom: 6px;
+}
+
+.btn-drink .name {
+  color: #333333;
+  font-size: 9px;
+  line-height: 13px;
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.btn-drink .price {
+  color: white;
+  background: #6327fe;
+  padding: 5px 15px;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 100%;
+}
+
+.btn-drink.select {
+  outline: 3px solid #6327fe;
+  filter: none;
+}
+
+.btn-drink {
+  position: relative;
+}
+
+.btn-drink .sold-out-print {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+}
+
+.btn-drink .sold-out-print p {
+  color: #eae8fe;
+  font-weight: 900;
+  font-size: 14px;
+  line-height: 18px;
+  width: 51px;
+  height: 27px;
+  border: 4px double #eae8fe;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-17deg);
+}
