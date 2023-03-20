@@ -135,11 +135,25 @@ header {
   }
 }
 
-/* .svg {
+.svg {
   display: block;
   width: auto;
   height: 120px;
   margin: 0 auto 20px;
-} */
+}
+.svg .svg-heart {
+  transform: scale(1);
+  stroke: transparent;
+  stroke-width: 0px;
+  transform-origin: 50% 20px;
+  z-index: 10;
+  animation: heart 0.5s cubic-bezier(0.23, 1.08, 0.26, 0.01) infinite alternate;
+}
 
-/* .svg .svg; */
+@keyframes heart {
+  to {
+    stroke: #ffc7d1;
+    stroke-width: 2px;
+    transform: scale(3);
+  }
+}
