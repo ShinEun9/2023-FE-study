@@ -1,0 +1,142 @@
+:root {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* reset  */
+* {
+  box-sizing: border-box;
+}
+
+body,
+p,
+h1,
+h2,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+img {
+  vertical-align: top;
+}
+li {
+  list-style: none;
+}
+
+/* style  */
+body {
+  background-color: #673399;
+}
+
+.wrapper {
+  width: 1080px;
+  margin: 100px auto;
+}
+
+/* header styling*/
+header {
+  margin-bottom: 100px;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+
+header h1 {
+  color: white;
+  font-size: 40px;
+  width: 26%;
+  flex-shrink: 0;
+}
+
+header::after {
+  content: "";
+  display: inline-block;
+  width: 100px;
+  height: 2px;
+  margin-right: 30px;
+  background-color: #bd8fe8;
+}
+
+header p {
+  color: #bd8fe8;
+  font-size: 14px;
+  order: 3;
+  line-height: 1.6;
+}
+
+header h1 span:nth-child(2),
+header h1 span:last-child {
+  box-shadow: inset 0 -0.6em orangered;
+}
+
+/* ---------------------------------------------- */
+/* section styling */
+.img-txt-box {
+  display: flex;
+  position: relative;
+}
+.img-txt-box:nth-child(2) {
+  flex-direction: row-reverse;
+}
+.img-txt-box:not(:last-child) {
+  margin-bottom: 24px;
+}
+
+.img-txt-box img {
+  width: 26%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.img-txt-box .img-cover {
+  color: white;
+  position: absolute;
+  top: 0;
+  width: 26%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  background: rgba(103, 51, 153, 0.4);
+}
+
+.img-txt-box:nth-child(odd) .img-cover {
+  left: 0;
+}
+
+.img-txt-box:nth-child(even) .img-cover {
+  right: 0;
+}
+
+.img-txt-box .txt-wrapper {
+  width: 74%;
+  background-color: white;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.img-txt-box .txt-wrapper h2 {
+  color: #673399;
+  font-size: 18px;
+  margin-bottom: 32px;
+}
+
+.img-txt-box .txt-wrapper ul {
+  flex-grow: 1;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.img-txt-box .txt-wrapper ul li::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #bd8fe8;
+  margin-right: 10px;
+}
