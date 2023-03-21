@@ -118,20 +118,13 @@ h1 {
 
 .cinema-info li {
   display: flex;
+  overflow: hidden;
+  gap: 5px;
 }
 
 .cinema-info li :first-child {
   color: #828282;
-  margin-right: 5px;
-}
-
-/* 출연 */
-.tit {
-  float: left;
-}
-.tit + .ellipsis {
-  float: right;
-  width: 140px;
+  flex-shrink: 0;
 }
 
 .star {
