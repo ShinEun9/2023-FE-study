@@ -1,13 +1,5 @@
-@font-face {
-  font-family: "SpoqaHanSansNeo-Regular";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff")
-    format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
 * {
-  font-family: "SpoqaHanSansNeo-Regular";
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
 }
 
 /* reset  */
@@ -16,7 +8,8 @@ p,
 button,
 input,
 ul,
-li {
+li,
+fieldset {
   padding: 0;
   margin: 0;
 }
@@ -27,7 +20,8 @@ a {
   text-decoration: none;
 }
 
-button {
+button,
+fieldset {
   border: 0;
   background: none;
   font: inherit;
@@ -63,6 +57,8 @@ section {
   border: 1px solid #c4c4c4;
   border-radius: 10px;
 }
+
+/* styling - header  */
 .header {
   position: relative;
   text-align: center;
@@ -90,9 +86,10 @@ section {
   margin-bottom: 24px;
 }
 
-.contents-wrapper form {
-  /* display: flex; */
-  /* flex-direction: column; */
+/* styling - form */
+/*         - filedset  */
+fieldset:not(:first-child) {
+  margin-top: 10px;
 }
 
 .login-input {
@@ -106,22 +103,47 @@ section {
   color: #767676;
 }
 
-.no-id .login-input:first-child {
+fieldset.error input {
   border: 2px solid #f4492e;
 }
 
-.no-id .txt {
+fieldset.error strong {
+  display: block;
   margin-left: 5px;
   color: #f4492e;
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
-  margin-bottom: 6px;
+  margin-top: 6px;
 }
 
-form :first-child {
+/*        - login-hold-checkbox */
+.login-hold-wrapper {
+  display: flex;
+  align-items: center;
+  margin: 17px 0 21px;
+}
+.login-checkbox {
+  appearance: none;
+  background: url(./img/check-box-empty.svg) no-repeat center;
+  width: 2em;
+  height: 2em;
+  margin-right: 10px;
 }
 
+.login-checkbox:checked {
+  background: url(./img/check-box.svg) no-repeat center;
+  width: 2em;
+  height: 2em;
+  margin-right: 10px;
+}
+
+.login-hold-label {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+/*        - login-btn  */
 .login-btn {
   width: 100%;
   margin-bottom: 20px;
@@ -135,6 +157,7 @@ form :first-child {
   line-height: 22px;
 }
 
+/* styling - 회원가입 / 아이디,비밀번호 찾기 a tag  */
 .a-wrapper {
   text-align: center;
   margin-bottom: 31px;
@@ -144,14 +167,13 @@ form :first-child {
   color: #767676;
 }
 
-.join-find-btn:first-child::after {
-  content: "";
+.a-wrapper span {
   display: inline-block;
   width: 1.1px;
   height: 14px;
   background-color: #767676;
-  vertical-align: -1.5px;
   margin: 0px 12px;
+  vertical-align: -0.2em;
 }
 
 .or-container {
@@ -183,8 +205,7 @@ form :first-child {
 
 .login-img-btn {
   width: 100%;
-  padding: 15px;
-
+  padding: 15px 0px;
   border-width: 1px;
   border-style: solid;
   border-radius: 5px;
