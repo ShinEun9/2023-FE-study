@@ -147,4 +147,5 @@ li {
 
 .custom-select.active ul {
   display: block;
+  z-index: 1;
 }
