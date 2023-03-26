@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position과 padding-top을 이용한 img 비율 맞추기</title>
+    <style>
+        img {
+            vertical-align: top;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        .thumbnail {
+            background: pink;
+            /* 
+            refer to the width of the containing block 
+            지금 현재는 body의 containing block width의 50%
+            */
+            padding-top: 50%;
+            height: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            /* 부모의 height가 0인데 어떻게 ? */
+            position: absolute;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- <div class="thumbnail">
+        <img src="https://github.com/ShinEun9/2023-Frontend-Study/blob/main/Bootstrap/jeju.jpg?raw=true" alt="제주도 사진" />
+    </div> -->
+
+
+</body>
+
+</html>

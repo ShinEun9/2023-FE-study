@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>auto</title>
+    <style>
+        /* item이 div  */
+        .container {
+            background-color: pink;
+            width: 100px;
+            height: 100px;
+            padding: 20px;
+            margin: 20px;
+            border: 20px solid black;
+        }
+
+        .item-width-auto {
+            background: orange;
+            width: auto;
+            border: 30px solid green;
+            /* height: auto; */
+        }
+
+        .item-width-100 {
+            background: teal;
+            width: 100%;
+            border: 30px solid green;
+        }
+
+        .item-height-100 {
+            background: salmon;
+            height: 100%;
+            border: 10px solid green;
+        }
+
+
+        /* item이 img */
+        .container-with-img {
+            width: 800px;
+            height: 800px;
+            background: orange;
+            border: 20px solid black;
+            padding: 50px;
+
+            margin-bottom: 20px;
+        }
+
+        img.auto {
+            width: auto;
+            height: auto;
+        }
+
+        img.width-100 {
+            width: 100%;
+            border: 20px solid pink;
+        }
+
+        img.height-100 {
+            height: 100%;
+            border: 20px solid pink;
+        }
+
+        img.width-height-100 {
+            width: 100%;
+            height: 100%;
+            border: 20px solid pink;
+
+        }
+
+        /*  */
+        .container-relative {
+            position: relative;
+            width: 800px;
+            height: 800px;
+            background: orange;
+            border: 20px solid black;
+            padding: 50px;
+        }
+
+        img.img-absolute {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item-width-auto">hi</div>
+    </div>
+
+    <div class="container">
+        <div class="item-width-100">hi</div>
+    </div>
+
+
+    <div class="container">
+        <div class="item-height-100">hi</div>
+    </div>
+
+    <div class="container-with-img">
+        <img class="auto " src="https://github.com/ShinEun9/2023-Frontend-Study/blob/main/Bootstrap/jeju.jpg?raw=true"
+            alt="제주도 사진" />
+    </div>
+
+    <div class="container-with-img">
+        <img class="width-100"
+            src="https://github.com/ShinEun9/2023-Frontend-Study/blob/main/Bootstrap/jeju.jpg?raw=true" alt="제주도 사진" />
+    </div>
+
+    <div class="container-with-img">
+        <img class="height-100"
+            src="https://github.com/ShinEun9/2023-Frontend-Study/blob/main/Bootstrap/jeju.jpg?raw=true" alt="제주도 사진" />
+    </div>
+
+    <div class="container-with-img">
+        <img class="width-height-100"
+            src="https://github.com/ShinEun9/2023-Frontend-Study/blob/main/Bootstrap/jeju.jpg?raw=true" alt="제주도 사진" />
+    </div>
+
+
+
+
+    <div class="container-relative">
+        <img src="https://github.com/ShinEun9/2023-Frontend-Study/blob/main/Bootstrap/jeju.jpg?raw=true" alt=""
+            class="img-absolute">
+    </div>
+</body>
+
+</html>
