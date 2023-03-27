@@ -1,0 +1,40 @@
+@mixin box($length, $radius) {
+  width: $length;
+  height: $length;
+  border-radius: $radius;
+}
+
+@mixin box_flex($direction) {
+  display: flex;
+  justify-content: $direction;
+  align-items: $direction;
+}
+
+.card {
+  @include box_flex(center);
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+}
+
+.card-item {
+  @include box(100px, 10%);
+  //   width: 100px;
+  //   height: 100px;
+  //   border-radius: 10%;
+}
+
+.product {
+  @include box_flex(right);
+  //   display: flex;
+  //   justify-content: right;
+  //   align-items: right;
+}
+
+.product-item {
+  @include box(200px, 20%);
+
+  //   width: 200px;
+  //   height: 200px;
+  //   border-radius: 20%;
+}

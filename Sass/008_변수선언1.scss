@@ -1,0 +1,15 @@
+$font-size: 16px;
+$color: #f00;
+// 한글 변수를 권장하지 않는다.
+// 고유 명사 같은 경우는 한글 변수를 사용할 수 이싿.
+$한라산: #0cd;
+
+.one {
+  font-size: $font-size;
+  color: $한라산;
+}
+
+.two {
+  background-color: $한라산;
+  color: $color;
+}

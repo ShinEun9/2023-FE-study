@@ -1,0 +1,18 @@
+// blue
+// mixin 은 내부에서 사용하지 않기를 권장
+.card {
+  @mixin box {
+    width: 100px;
+    height: 100px;
+  }
+
+  @include box;
+  background-color: blue;
+}
+
+// red
+.profile {
+  // 에러남
+  //   @include box;
+  //   background-color: red;
+}

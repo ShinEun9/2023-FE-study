@@ -1,0 +1,14 @@
+.one {
+  color: green;
+  .two {
+    color: blue;
+    .three {
+      color: pink;
+      @at-root .four {
+        color: red;
+      }
+    }
+  }
+}
+
+// four가 내부에 있지만, 밖에도 있을 때 at-root쓴다.

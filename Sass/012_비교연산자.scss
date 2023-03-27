@@ -1,0 +1,15 @@
+// Sass 공식문서
+@debug 100 > 50; // true
+@debug 10px < 17px; // true
+@debug 96px >= 1in; // true
+@debug 1000ms <= 1s; // true
+
+$value: 32px;
+
+p {
+  @if ($value >= 32px) {
+    letter-spacing: 1rem;
+  } @else {
+    letter-spacing: 0.5rem;
+  }
+}

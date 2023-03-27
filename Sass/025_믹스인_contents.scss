@@ -1,0 +1,29 @@
+@mixin one {
+  width: 100px;
+  height: 100px;
+  color: white;
+  @content;
+}
+
+.test1 {
+  @include one;
+}
+
+.test2 {
+  @include one {
+    background-color: red;
+  }
+}
+
+.test3 {
+  @include one;
+  background-color: red;
+  //   중괄호 안에 쓰는것과 같다.(test2와 같다)
+}
+
+.test4 {
+  @include one {
+    background-color: red;
+    font-size: 32px;
+  }
+}

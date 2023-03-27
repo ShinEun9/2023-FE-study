@@ -1,0 +1,28 @@
+@mixin button($color) {
+  color: $color;
+  @if $color == black {
+    font-size: 32px;
+    background-color: white;
+  } @else if $color == white {
+    font-size: 24px;
+    background-color: black;
+  } @else if $color == green {
+    font-size: 24px;
+    background-color: black;
+  } @else {
+    font-size: 16px;
+    background-color: blue;
+  }
+}
+
+// 1. if 단독
+// 2. if / else
+// 3. if / elif / else
+// 4. if / elif / elif .... / else
+
+.btn {
+  @include button(black); // 파선아실: parmeter는 선언, argument는 실제값
+}
+
+// if if if 여러개로 되어있으면 모든 if 실행됨.
+// if else if else 일 때 첫번째 if에서 걸리면 그 다음 else if 와 else를 실행하지 않음.
