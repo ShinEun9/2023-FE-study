@@ -16,6 +16,7 @@
         <h1 class="mt-5 text-center">나랑 꼭 닮은 세렝게티 동물은?</h1>
         <button type="button" class="btn btn-primary mt-5" onclick="start();">테스트 시작하기</button>
     </article>
+
     <article class="question">
         <div class="progress mt-5">
             <div class="progress-bar" role="progressbar" style="width: calc(100/12*1%)"></div>
@@ -30,7 +31,13 @@
         <img id="img" class="rounded-circle mt-5" src="./img/lion.jpg" alt="animal">
         <h2 id="animal" class="text-center mt-5">동물이름</h2>
         <h3 id="explain" class="text-center mt-5">설명</h3>
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <div class="addthis_inline_share_toolbox share"></div>
     </article>
+
+    <ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-5ERMEyqa9ZR0YHk9" data-ad-width="320"
+        data-ad-height="100"></ins>
+    <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
 
     <input type="hidden" id="EI" value="0">
     <input type="hidden" id="SN " value="0">
@@ -59,7 +66,6 @@
             11: { title: "문제11", type: "JP", "A": "모두 함께하는게 좋지", "B": "혼자가 최고임" },
             12: { title: "문제12", type: "JP", "A": "모두 함께하는게 좋지", "B": "혼자가 최고임" },
         }
-
         var result = {
             "ISTJ": { "animal": "하마", "explain": "하마설명", "img": "./img/lion.jpg" },
             "ENFP": { "animal": "하마", "explain": "하마설명", "img": "./img/lion.jpg" },
@@ -104,8 +110,6 @@
                 $("#img").attr("src", result[mbti]["img"]);
                 $("#animal").html(result[mbti]["animal"]);
                 $("#explain").html(result[mbti]["explain"]);
-
-
             } else {
                 $(".progress-bar").attr('style', 'width: calc(100/12*' + num + '%)')
                 $("#title").html(q[num]["title"]);
@@ -114,11 +118,12 @@
                 $("#B").html(q[num]["B"]);
                 num++;
             }
-
-
         }
-
     </script>
+
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-642277b09a6e7062"></script>
+
 </body>
 
 </html>
