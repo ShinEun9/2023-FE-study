@@ -109,7 +109,7 @@ button:not(:disabled) {
 .section_white .card-contents {
   display: flex;
   flex-direction: column;
-  height: 350px;
+  /* height: 390px; */
 }
 
 .card-contents-text {
@@ -144,20 +144,24 @@ button:not(:disabled) {
 
 .card-contents-title {
   -webkit-line-clamp: 2;
-  max-height: 3.2em;
+  line-height: 1.5em;
+  height: 3em;
   margin-bottom: 32px;
   font-size: 24px;
 }
 
 .card-contents-description {
   -webkit-line-clamp: 6;
-  max-height: 9.6em;
+  line-height: 1.5em;
+  height: 9em;
+
   font-size: 14px;
   color: #a3a2a2;
 }
 
 .card-contents-footer {
   flex-basis: 68px;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
