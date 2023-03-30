@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연산</title>
+</head>
+
+<body>
+    <script>
+        //산술연산
+        const x = 10;
+        const y = 3;
+        console.log(x + y);
+        console.log(x - y);
+        console.log(x / y);
+        console.log(x * y);
+        console.log(x ** y); // 승수 10 * 10 * 10
+        console.log(x % y); // 몫 : 3, 나머지 : 1
+
+
+
+
+
+        //논리연산
+        const a = true;
+        const b = false;
+        const c = 10;
+        const cc = 0;
+
+        console.log(a && b); //false
+        console.log(a || b); //true
+        console.log(!a);
+        console.log(!!a);
+        console.log(!!c); // true
+        console.log(!!cc) // false
+
+        // 중요하지 않은 비트연산자
+        // console.log(x | y);
+        // console.log(x & y);
+        // console.log(3 & 5);
+        // 0011
+        // 0101
+        // ----
+        // 0001
+
+        // console.log(3 | 5);
+        // 0011
+        // 0101
+        // ----
+        // 0111
+
+        // 비트연산자 중에서 유일하게 조금 중요한 연산(부정연산)
+        // console.log(~3)
+        // console.log(~~3)
+        // console.log(~~3.14)
+        // console.log(parseInt(3.14))
+        // console.log(parseInt('3.14'))
+        // console.log(parseInt('3.14abc'))
+
+
+
+
+        // 비교연산
+
+        const i = 3;
+        const j = 7;
+        console.log(i > j);
+        console.log(i >= j);
+        console.log(i < j);
+        console.log(i <= j);
+        console.log(xi == j); // 변수의 type을 확인하지 않음
+        console.log(i === j); // 변수의 type을 확인함. 1) 견고한 코딩 2) 성능상
+        console.log(i != j);
+        console.log(i !== j);
+    </script>
+</body>
+
+</html>
