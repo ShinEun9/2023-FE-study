@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>호두마켓</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="orange-wrap">
+        <header>
+            <a href="">
+                <h1><img src="./img/logo.svg" alt="logo"></h1>
+            </a>
+            <nav>
+                <ul class="nav-lists">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li class="orange-btn"><a href="#">Download</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section class="section1">
+            <div>
+                <h2 class="section1-title">Lorem Ipsum is simply<br>
+                    dummy text of the printing and</h2>
+                <p class="section1-description">Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry.<br>
+                    Lorem Ipsum has been the industry's standard dummy text
+                    ever since the 1500s, when an unknown</p>
+                <button class="orange-btn" type="button">Download</button>
+            </div>
+            <img src="./img/cat1.png" alt="고양이">
+        </section>
+
+    </div>
+    <section class="section2">
+        <img src="./img/cat2.png" alt="">
+        <div>
+            <h2 class="section2-title">Lorem Ipsum is simply
+                dummy text of the printing and dummy text</h2>
+            <p class="section2-description">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            </p>
+        </div>
+    </section>
+    <section class="section3">
+        <h2 class="section3-title ">dummy text of the printing and dummy</h2>
+        <p class="section3-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br>
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown</p>
+        <div class="section3-img-wrap">
+            <img class="section3-img" src="./img/cat3.png" alt="">
+            <img class="section3-img" src="./img/cat4.png" alt="">
+            <img class="section3-img" src="./img/cat5.png" alt="">
+        </div>
+        <div class="section3-btn-wrap">
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+                Ipsum is simply dummy text of the printing and typesetting industry. </p>
+            <a href="#" class="orange-btn">Learn More</a>
+        </div>
+        <article class="subs-container">
+            <div class="subs-info">
+                <h3>Subscribe to our Blog post</h3>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text </p>
+            </div>
+            <form class="subs-form"">
+                <div class=" input-wrap">
+                <label class="a11y-hidden" for="email">email</label>
+                <input id="email" type="email" placeholder="Enter your e-mail address">
+                <button class="orange-btn" type="submit">Subscribe</button>
+                </div>
+            </form>
+        </article>
+
+    </section>
+
+    <section class="section4">
+        <h2 class="a11y-hidden">section4</h2>
+    </section>
+
+
+
+    <a href="#" class="scroll-top-btn">
+        <span class="a11y-hidden">페이지 맨 위로 올라가기 버튼</span>
+        <svg width="20" height="13" viewBox="0 0 20 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2.35 12.6833L10 5.04992L17.65 12.6833L20 10.3333L10 0.333252L0 10.3333L2.35 12.6833Z"
+                fill="#C4C4C4" />
+        </svg>
+    </a>
+
+    <footer>
+        <img src="./img/logo.svg" alt="">
+        <ul class="sns-btn-lists">
+            <li>
+                <a href="#" class="sns-btn"> <img src="./img/blog.svg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#" class="sns-btn"> <img src="./img/instagram.svg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#" class="sns-btn"><img src="./img/facebook.svg" alt=""></a>
+            </li>
+            <li>
+                <a href="#" class="sns-btn"><img src="./img/youtube.svg" alt=""></a>
+            </li>
+        </ul>
+    </footer>
+
+    <article class="modal">
+        <img src="./img/modal-cat.png" alt="">
+        <h4>Thank you!</h4>
+        <p>Lorem Ipsum is simply dummy text of the printing industry. </p>
+        <button class="orange-btn modal-close-btn" type="button">OK! I Love HODU</button>
+    </article>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+
+    <script>
+        const $form = document.querySelector('.subs-form');
+        const $modal = document.querySelector('.modal');
+        const $close_btn = document.querySelector('.modal-close-btn');
+
+        $form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            console.dir($modal);
+            $modal.style.display = "block";
+        });
+
+        $close_btn.addEventListener('click', () => {
+            console.log('hi')
+            $modal.style.display = "none";
+        })
+
+    </script>
+</body>
+
+</html>
