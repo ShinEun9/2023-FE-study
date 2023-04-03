@@ -8,6 +8,7 @@
     <title>호두마켓</title>
     <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./responsive.css">
 </head>
 
 <body class="body">
@@ -17,7 +18,12 @@
                 <h1><img src="./img/logo.svg" alt="logo"></h1>
             </a>
             <nav class="nav-box">
-                <button class="nav-close-btn" type="button"><img src="./img/arrow-right.svg" alt=""></button>
+                <button class="nav-close-btn" type="button">
+                    <span class="a11y-hidden">
+                        네비게이션 바 닫기 버튼
+                    </span>
+                    <img src="./img/arrow-right.svg" alt="">
+                </button>
 
                 <ul class="nav-lists">
                     <li><a href="#">Home</a></li>
@@ -31,7 +37,7 @@
             </button>
         </header>
         <section class="section1">
-            <div>
+            <div class="section1-info">
                 <h2 class="section1-title">Lorem Ipsum is simply
                     dummy text of the printing and</h2>
                 <p class="section1-description">Lorem Ipsum is simply dummy text of the printing and
@@ -40,8 +46,6 @@
                     ever since the 1500s, when an unknown</p>
                 <button class="orange-btn" type="button">Download</button>
             </div>
-            <img src="./img/cat1.png" alt="고양이">
-
         </section>
     </div>
 
@@ -73,9 +77,6 @@
             <a href="#" class="orange-btn">Learn More</a>
         </div>
 
-
-    </section>
-    <section class="section4">
         <article class="subs-container">
             <div class="subs-info">
                 <h3>Subscribe to our Blog post</h3>
@@ -83,15 +84,14 @@
                     Lorem Ipsum has been the industry's standard dummy text </p>
             </div>
             <form class="subs-form">
-                <div class="input-wrap">
-                    <label class="a11y-hidden" for="email">email</label>
-                    <input id="email" type="email" placeholder="Enter your e-mail address">
-                </div>
+                <label class="a11y-hidden" for="email">email</label>
+                <input id="email" type="email" placeholder="Enter your e-mail address">
                 <button class="orange-btn" type="submit">Subscribe</button>
             </form>
         </article>
         <h2 class="a11y-hidden">section4</h2>
     </section>
+
 
     <a href="#" class="scroll-top-btn">
         <span class="a11y-hidden">페이지 맨 위로 올라가기 버튼</span>
@@ -102,32 +102,34 @@
     </a>
 
     <footer>
-        <div class="footer-main">
-            <img class="logo-img" src="./img/logo.svg" alt="">
-            <ul class="sns-btn-lists">
-                <li>
-                    <a href="#" class="sns-btn"> <img src="./img/blog.svg" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="sns-btn"> <img src="./img/instagram.svg" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="sns-btn"><img src="./img/facebook.svg" alt=""></a>
-                </li>
-                <li>
-                    <a href="#" class="sns-btn"><img src="./img/youtube.svg" alt=""></a>
-                </li>
+        <div class="footer-bg"></div>
+        <div class="footer-cont">
+            <div class="footer-main">
+                <img class="logo-img" src="./img/logo.svg" alt="">
+                <ul class="sns-btn-lists">
+                    <li>
+                        <a href="#" class="sns-btn"> <img src="./img/blog.svg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="sns-btn"> <img src="./img/instagram.svg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="sns-btn"><img src="./img/facebook.svg" alt=""></a>
+                    </li>
+                    <li>
+                        <a href="#" class="sns-btn"><img src="./img/youtube.svg" alt=""></a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="footer-nav">
+                <li><a href="#">About</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Terms of Use</a></li>
             </ul>
         </div>
-
-        <ul class="footer-nav">
-            <li><a href="#">About</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Support</a></li>
-            <li><a href="#">Terms of Use</a></li>
-        </ul>
     </footer>
 
     <div class="modal-backdrop ">
