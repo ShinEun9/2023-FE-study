@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>undefined, null</title>
+</head>
+
+<body>
+    <script>
+        let a;
+        console.log(a); // undefined
+
+        let b = null; // 존재하지만 값이나 자료형이 존재하지 않음
+        console.log(b); //null
+
+        let 점수 = [10, 20, 30, null, 40, 50]
+        let 반평균 = 0;
+        for (const i of 점수) {
+            console.log(i);
+            반평균 += i;
+            console.log(반평균);
+        }
+        console.log(반평균); // 150
+
+        let 점수2 = [10, 20, 30, undefined, 40, 50]
+        let 반평균2 = 0;
+        for (const i of 점수2) {
+            console.log(i);
+            반평균2 += i;
+        }
+        console.log(반평균2); // NaN
+    </script>
+</body>
+
+</html>

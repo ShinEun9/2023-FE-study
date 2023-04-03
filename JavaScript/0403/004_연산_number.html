@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>number-연산</title>
+</head>
+
+<body>
+    <script>
+        // 할당연산
+        // 단항 연산
+        console.log(+(-2));
+        console.log(('2'));
+
+        // 증감연산
+        let num = 3;
+        ++num // 선증가 후할당
+
+        let num2 = 3;
+        num++ // 선할당 후 증가
+
+        for (let i = 0; i < 10; i++) {
+            console.log(i);
+        }
+
+        for (let i = 0; i < 10; ++i) {
+            console.log(i);
+        }
+
+
+        //////////////////////////////////////////////////////// 
+        // 단락회로평가(***)
+        // true: 1
+        // false: 0
+        // and(&&): 곱
+        // or(||): 합
+        // not(!): 부정
+
+        console.log(!"false"); // false
+        console.log(!"0") // false
+
+        console.log(!false) // true
+        console.log(!0) // true
+
+        console.log('abc' / 2) //NaN
+
+        console.log(!!NaN) // false
+        console.log(!!undefined) // false
+        console.log(!!null) // false
+        console.log(!!""); //false
+
+        let username = "";
+        username = username || "이름을 입력하지 않으신분";
+        console.log(username);
+
+        let username2 = "이호준";
+        username2 = username2 || "무명"
+        console.log(username2);
+
+
+
+        //////////////////////////////////////////////////////// 
+        // 삼항연산자(***)
+        // 조건식 ? 참일경우 실행되는 표현식: 거짓일 경우 실행되는 표현식
+        const sale = true;
+        const price = sale ? 100 : 200;
+        console.log(price);
+
+        const price2 = 7000;
+        const message2 = price2 >= 5000 ? "expensive" : "cheap"
+
+        // 9000원 이상이면 비싸다, 7000원 이상이면 적절하다. 7000원 미만이면 저렴하다
+        const price3 = 7500;
+        const message3 = price3 >= 9000 ? "비싸다" : (price3 > 7000 ? "적절하다" : "저렴하다");
+        console.log(message3);
+
+
+        ////////////////////////////////////////////////////////
+        // 드모르간법칙
+        const x = 0;
+        const y = 1;
+        console.log(!(x || y) === (!x && !y))
+        console.log(!(x && y) === (!x || !y));
+        // 헷갈리는 연산모음
+    </script>
+
+</body>
+
+</html>

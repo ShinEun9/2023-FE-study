@@ -426,13 +426,15 @@ footer .sns-btn {
   }
 
   .section1-title {
-    width: auto;
+    width: 100%;
     font-weight: 700;
     font-size: 24px;
     line-height: 30px;
   }
 
   .section1-description {
+    width: 100%;
+
     margin: 0 auto 30px auto;
     font-weight: 400;
     font-size: 14px;
@@ -462,7 +464,6 @@ footer .sns-btn {
 
   .section3 {
     max-width: 326px;
-    overflow: hidden;
     padding-bottom: 330px;
   }
 
@@ -473,7 +474,9 @@ footer .sns-btn {
 
   .section3-img-wrap {
     gap: 20px;
-    overflowx: scroll;
+    margin-right: -32px;
+    /* width: calc(100%) */
+    overflow-x: scroll;
   }
   .section3-img-wrap img {
     width: 260px;

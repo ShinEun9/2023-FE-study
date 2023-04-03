@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>위니브스토어</title>
+    <style>
+        main {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        article {
+            width: calc((100%/2) - 10px);
+        }
+
+        article img {
+            width: 90%;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        fetch('http://test.api.weniv.co.kr/mall')
+            .then(data => data.json())
+            .then(data => {
+                const main = document.createElement("main");
+
+                data.forEach(item => {
+                    const productCard = document.createElement('article')
+                    const productImg = document.createElement('img');
+                    const productName = document.createElement('h2')
+                    const productPrice = document.createElement('p')
+
+                    productImg.setAttribute('src', `http://test.api.weniv.co.kr/${item.thumbnailImg}`)
+                    productName.textContent = item.productName
+                    productPrice.textContent = item.price
+
+                    productCard.appendChild(productImg);
+                    productCard.appendChild(productName)
+                    productCard.appendChild(productPrice)
+
+                    main.appendChild(productCard)
+                })
+                document.body.appendChild(main)
+            })
+
+
+    </script>
+</body>
+
+</html>
