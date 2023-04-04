@@ -7,7 +7,7 @@ arr.filter(function (item) {
 Array.from("hello world").filter((v) => !["a", "e", "i", "o", "u"].includes(v)); // 모음제거
 
 // 2. arr.reduce((accumulator, currentValue) => a + c, initialValue); -> initialValue 항상 필수
-const arr2 = [1, 2, 3, 4, 5, 6, , 7, 8, 9, 10];
+const arr2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 console.log(arr2.reduce((a, c) => a + c, 0));
 
 // 3. arr.includes()

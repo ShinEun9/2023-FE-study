@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hoisting2</title>
+</head>
+
+<body>
+    <script>
+
+        function 함수1(a, b, c) {
+            console.log("함수1 호출")
+            return a * b * c
+        }
+
+        console.log(함수1(10, 20, 30, 40)) //error가 발생하지 않습니다.
+
+        console.log(함수1(10, 20)) // error가 발생하지 않습니다. NaN 발생
+
+        function 함수1(a = 10, b = 30, c = 30) {
+            console.log("함수1-2호출") // 함수1-2 호이스팅되어 함수호출 모두 함수1-2가 호출됨
+            return a + b + c
+        }
+        console.log(함수1(1, 1))
+    </script>
+</body>
+
+</html>
