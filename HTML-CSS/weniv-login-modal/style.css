@@ -126,8 +126,8 @@ fieldset.error strong {
 .login-checkbox {
   appearance: none;
   background: url("./img/css_sprites_retina.png") -52px/84px 42px;
-  width: 2em;
-  height: 2em;
+  width: 22px;
+  height: 22px;
   margin-right: 10px;
   cursor: pointer;
 }
@@ -205,15 +205,6 @@ fieldset.error strong {
 
 .login-img-btn {
   width: 100%;
-  /* padding: 15px 0px;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 5px;
-  color: #767676;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 20px;
-  position: relative; */
   display: block;
   padding: 15px 14px;
   border-radius: 5px;
@@ -237,7 +228,9 @@ li:not(:last-child) {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: url(./img/css_sprites2.png) center;
+  /* background: url(./img/css_sprites2.png); */
+  background: url(./img/retina.png);
+  background-size: 96px 96px;
   background-color: black;
 }
 
@@ -247,9 +240,11 @@ li:not(:last-child) {
 .login-img-btn.icon-facebook {
   border: 1px solid #2d9cdb;
 }
+
 .login-img-btn.icon-naver {
   border: 1px solid #00bf18;
 }
+
 .login-img-btn.icon-kakaotalk {
   border: 1px solid #f2c94c;
 }
@@ -259,6 +254,7 @@ li:not(:last-child) {
 }
 
 .icon-facebook::before {
+  height: 24px;
   background-position: -10px -10px;
 }
 
