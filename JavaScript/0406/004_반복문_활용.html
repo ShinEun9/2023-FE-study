@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반복문 활용</title>
+</head>
+
+<body>
+    <script>
+        for (let i = 0; i < 10; i++) {
+            console.log(i);
+        }
+
+        let arr = [10, 20, 30, 40, 50]
+        for (let i = 0; i < arr.length; i++) {
+            console.log(arr[i])
+        }
+        ///////////////////////////////////////////////////////////////////////////////
+        // 1. for in문
+        // airbnb 컨벤션에서 권장하는 방식
+        // IE에서도 사용가능
+        let arr1 = [10, 20, 30, 40, 50];
+        let obj1 = { one: 10, two: 20 };
+        for (const i in arr1) {
+            console.log(arr1[i]) // index를 가져옴, typeof i는 string arr['0']
+            // console.log(arr[parseInt(i) + 1])
+        }
+        for (const i in obj1) {
+            console.log(obj1[i]) // key를 가져옴
+        }
+
+        let s = 0;
+        for (const i in '.'.repeat(101)) { // string순회(.이 101개인 string = 0부터 100까지)
+            s += parseInt(i)
+        }
+        console.log(s) // 5050; (0부터 100까지 더한 값)
+
+        ///////////////////////////////////////////////////////////////////////////////
+        // 2. for of문
+        // airbnb 컨벤션에서 권장하는 방식
+        // IE에서 사용불가
+        let arr2 = [10, 20, 30, 40, 50];
+        let obj2 = { one: 10, two: 20 };
+
+        for (const item of arr2) {
+            console.log(item)
+        }
+
+        let ss = 0
+        for (const item of arr2) {
+            ss += item;
+        }
+        console.log(ss);
+
+        // for (const item of obj2) { // of 뒤에 iterable한 값이 나와야함. 에러남 
+        //     console.log(item);
+        // }
+
+        for (const item of 'hello world') {
+            console.log(item)
+        }
+
+        //////////////////////////////////////////////////////////////////////////////
+        // why? for of와 for in문에서는 const가 가능할까?
+        // 한국어 : https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/for...of#%EB%AA%85%EC%84%B8%EC%84%9C
+        // 영어 : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of
+        // ECMAScript 명세서 : https://tc39.es/ecma262/multipage/ecmascript-language-statements-and-declarations.html#sec-for-in-and-for-of-statements
+        // https://tc39.es/ecma262/multipage/ecmascript-language-statements-and-declarations.html#prod-LetOrConst
+        // for (const i = 0; i < 10; i++) {
+        //     console.log(10);
+        // } // error
+
+        {
+            const x = 10
+            console.log(x)
+        }
+        // console.log(x) // error
+
+        for (const i in [1, 2, 3]) {
+            console.log(i)
+        }
+
+        ///////////////////////////////////////////////////////////////////////////////
+        // 문제1.
+        // https://codingdojang.com/scode/408?answer_mode=hide
+        p = [1, 3, 4, 8, 13, 17, 20]
+        for (let i = 0; i < p.length; i++) {
+            console.log(p[i], p[i + 1]); // 마지막 값을 확인하기 => 20 undefined
+        }
+        for (let i = 0; i < p.length - 1; i++) {
+            console.log(p[i], p[i + 1]);
+            console.log(p[i + 1] - p[i])
+        }
+        for (let i = 1; i < p.length; i++) {
+            console.log(p[i - 1], p[i]);
+            console.log(p[i] - p[i - 1])
+        }
+
+        ///////////////////////////////////////////////////////////////////////////////
+        // 문제2.
+        // 다음 수학 점수의 반평균을 구하세요.
+        let 수학점수 = [10, 99, 89, 70, 55, 40]
+        let sum = 0;
+        for (item of 수학점수) {
+            sum += item;
+        }
+        let avg = sum / 수학점수.length;
+        console.log(avg);
+
+
+        ///////////////////////////////////////////////////////////////////////////////
+        // 문제3
+        // 다음 user의 나이 평균을 구하세요.
+        let user = [
+            {
+                "_id": "642e3071c61a23c70ae6076b",
+                "index": 0,
+                "age": 31,
+                "name": "Hicks Garza",
+                "gender": "male",
+            },
+            {
+                "_id": "642e3071ecd6f90a87d64731",
+                "index": 1,
+                "age": 32,
+                "name": "Ayers Harrington",
+                "gender": "male",
+            },
+            {
+                "_id": "642e3071cef9ddc131f047fb",
+                "index": 2,
+                "age": 39,
+                "name": "Lamb Adams",
+                "gender": "male",
+            }
+        ]
+        // for문
+        let agesum1 = 0;
+        for (let i = 0; i < user.length; i++) {
+            agesum1 += user[i]['age'];
+        }
+        console.log((agesum1 / user.length).toFixed(2))
+
+        // for of 문으로
+        let agesum2 = 0;
+        for (item of user) {
+            agesum2 += item.age;
+        }
+        console.log((agesum2 / user.length).toFixed(2))
+
+        // for in문으로
+        let agesum3 = 0;
+        for (i in user) {
+            agesum3 += user[i].age;
+        }
+        console.log((agesum3 / user.length).toFixed(2))
+
+        // 견고한 코드란?
+        // 1. age가 문자였다면?
+        // 2. age가 입력되지 않았다면?
+        // 3. age 필드가 없다면?(MongoDB의 경우)
+
+        //////////////////////////////////////////////////////////////////////////////
+        // user2[3]에 age가 없을 때
+        let user2 = [
+            {
+                "_id": "642e3071c61a23c70ae6076b",
+                "index": 0,
+                "age": 31,
+                "name": "Hicks Garza",
+                "gender": "male",
+            },
+            {
+                "_id": "642e3071ecd6f90a87d64731",
+                "index": 1,
+                "age": 32,
+                "name": "Ayers Harrington",
+                "gender": "male",
+            },
+            {
+                "_id": "642e3071cef9ddc131f047fb",
+                "index": 2,
+                "age": 39,
+                "name": "Lamb Adams",
+                "gender": "male",
+            },
+            {
+                "_id": "642e3071cef9ddc131f047fb",
+                "index": 2,
+                "name": "Lamb Adams",
+                "gender": "male",
+            }
+        ]
+
+        let agesum4 = 0;
+        for (item of user2) {
+            console.log(item)
+            console.log(agesum4) // 마지막에 102
+            console.log(item.age) // 마지막에 undefined
+            console.log('----------')
+            // agesum4 += item.age; // 102 + undefined
+            agesum4 += item.age ?? 0;
+        }
+        console.log((agesum4 / user2.length).toFixed(2))
+
+        // 또는
+        agesum5 = 0;
+        for (const item of user.map((v, i) => v.age)) {
+            if (!!item) {
+                agesum5 += item;
+            }
+        }
+        console.log((agesum5 / user2.length).toFixed(2))
+
+        //////////////////////////////////////////////////////////////////////
+        console.log(!true) // false
+        console.log(!false) // true
+        console.log(!!10) // true
+        console.log(!!1)  //true
+        console.log(!!0) //false
+        console.log(!!'hello') // true
+        console.log(!!NaN) // false
+        console.log(!!undefined) // false
+        console.log(!!null) // false
+
+        ///////////////////////////////////////////////////////////////////////
+        user2
+            .map(v => v.age)
+            .filter(v => !!v)
+            .reduce((a, b) => a + b, 0)
+    </script>
+
+
+</body>
+
+</html>

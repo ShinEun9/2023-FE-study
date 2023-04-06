@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반복문</title>
+</head>
+
+<body>
+    <script>
+        const cars = ["BMW", "Volvo", "Saab", "Ford", "Flat", "Audi"];
+        let text = "";
+
+        text += '<section><h2>' + cars[0] + '</h2></section>'
+        text += '<section><h2>' + cars[1] + '</h2></section>'
+        text += '<section><h2>' + cars[2] + '</h2></section>'
+        text += '<section><h2>' + cars[3] + '</h2></section>'
+        text += '<section><h2>' + cars[4] + '</h2></section>'
+        document.body.innerHTML = text;
+
+
+        const cars2 = ["BMW", "Volvo", "Saab", "Ford", "Flat", "Audi"];
+        let text2 = ''
+        for (let i = 0; i < cars2.length; i++) {
+            text2 += '<section><h2>' + cars2[i] + '</h2></section>'
+        }
+        document.body.innerHTML = text2;
+
+
+        for (let i = 0; i < 10; i++) {
+            console.log(i)
+        }
+        // console.log(i) // i는 반복문이 끝난 다음 호출할 수 없음
+
+        // 위 구문과 차이 없음.
+        for (let i = 0; i < 10; ++i) {
+            console.log(i)
+        }
+
+        // 2씩 증가
+        for (let i = 0; i < 10; i += 2) {
+            console.log(i)
+        }
+
+        // let을 생략하면 안됨. let을 생략하면 변수가 전역으로 선언됨. 
+        // (여기서는 변수n이 전역으로 생성된 것을 볼 수 있음)
+        for (n = 0; n < 10; n += 2) {
+            console.log(n)
+        }
+        console.log(n)
+
+        // 무한반복 코드
+        // 무한반복은 메모리를 많이 잡아먹기 때문에 시스템 전체의 영향이 감
+        // 1. 반복의 시간을 가능하면 정하기(1초에 한 번 실행하기)
+        // 2. 타출 조건을 명확히 하자
+        // for (; ;) {
+        //     console.log('실행하지 마세요.')
+        // }
+
+        // 무한반복코드
+        // for (let i = 0; i < 10;) {
+        //     console.log(i)
+        // }
+
+        for (let i = 0; i < 10;) {
+            console.log(i)
+            i += 1
+        }
+
+        for (let i = 0; ;) {
+            console.log(i)
+            i += 1
+            if (i >= 10) {
+                break
+            }
+        }
+
+        //무한반복 let i = 0이 계속 반복 때마다 실행되기 때문에 i가 10을 절대 넘지 않는다
+        // for (; ;) { 
+        //     let i = 0
+        //     console.log('실행하지 마세요.')
+        //     i += 1
+        //     if (i >= 10) {
+        //         break
+        //     }
+        // }
+
+        let i = 0
+        for (; ;) {
+            console.log(i);
+            i += 1
+            if (i >= 10) {
+                break
+            }
+        }
+    </script>
+</body>
+
+</html>

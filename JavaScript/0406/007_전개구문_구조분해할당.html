@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전개구문, 구조분해할당</title>
+</head>
+
+<body>
+    <script>
+        // 1. 전개구문
+        // 배열의 전개구문
+        const 과일들 = ['사과', '파인애플', '수박'];
+        const 생선들 = ['조기', '갈치', '다금바리'];
+        const 합치면 = [...과일들, ...생선들];
+        const 합치면2 = [과일들, 생선들]
+        console.log(합치면);
+        console.log(합치면2);
+
+        // 객체의 전개구문
+        const 학생1 = { 개리: 1, 빙키: 2 };
+        const 학생2 = { 라이캣: 3 };
+        const 학생그룹1 = { ...학생1, ...학생2 };
+        console.log(학생그룹1);
+
+        const 학생그룹2 = {
+            개리: '재학중',
+            빙키: '재학중',
+            라이켓: '재학중',
+            뮤라: '재학중',
+            해골왕: '재학중'
+        }
+        const 학생그룹3 = {
+            ...학생그룹2,
+            라이켓: '퇴학',
+            해골왕: '휴학'
+        }
+        console.log(학생그룹2, 학생그룹3);
+
+        /////////////////////////////////////////////////////////////////////////////////////
+        // 구조분해할당
+        for (const [i, j] of [[1, 2], [3, 4], [5, 6]]) {
+            console.log(i, j)
+        }
+    </script>
+</body>
+
+</html>

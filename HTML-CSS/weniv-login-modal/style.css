@@ -125,7 +125,8 @@ fieldset.error strong {
 }
 .login-checkbox {
   appearance: none;
-  background: url("./img/css_sprites_retina.png") -52px/84px 42px;
+  /* background: url(./img/css_sprites.png) -52px -10px; */
+  background: url(./img/css_sprites_retina.png) -52px -10px/84px 42px;
   width: 22px;
   height: 22px;
   margin-right: 10px;
@@ -133,7 +134,8 @@ fieldset.error strong {
 }
 
 .login-checkbox:checked {
-  background: url("./img/css_sprites_retina.png") -10px/84px 42px;
+  /* background: url(./img/css_sprites.png) -10px -10px; */
+  background: url(./img/css_sprites_retina.png) -10px -10px/84px 42px;
   margin-right: 10px;
 }
 
@@ -228,10 +230,9 @@ li:not(:last-child) {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  /* background: url(./img/css_sprites2.png); */
-  background: url(./img/retina.png);
+  /* background: url(./img/css_sprites_icon.png); */
+  background: url(./img/css_sprites_icon_retina.png);
   background-size: 96px 96px;
-  background-color: black;
 }
 
 .login-img-btn.icon-google {

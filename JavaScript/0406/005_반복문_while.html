@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반복문 while</title>
+</head>
+
+<body>
+    <script>
+        let x = 0
+        while (x < 10) {
+            console.log(x)
+            x += 1;
+        }
+
+
+        ///////////////////////////////////////////////////////////////////////////
+        let input;
+        do {
+            input = prompt("숫자를 입력하세요.");
+        } while (isNaN(input));
+
+        console.log("입력한 숫자는 " + input + "입니다.");
+
+        ///////////////////////////////////////////////////////////////////////////
+        let input2;
+        do {
+            input2 = confirm('다음에도 저희와 함께 하시겠습니까?')
+        } while (!input2);
+        console.log("감사합니다.");
+
+        ///////////////////////////////////////////////////////////////////////////
+        // 암기코드1. 구구단
+        // 1-1) 구구단 for문
+        for (let i = 2; i < 10; i++) {
+            for (let j = 1; j < 10; j++) {
+                console.log(`${i}*${j} = ${i * j}`);
+            }
+        }
+        // 1-2) 구구단 while문
+        let i = 2;
+        while (i < 10) {
+            let j = 1;
+            while (j < 10) {
+                console.log(`${i}*${j} = ${i * j}`);
+                j++;
+            }
+            i++;
+        }
+
+        // 암기코드2
+        // 2-1) for문
+        let s = 'hello world';
+        let result = ''
+        for (let i = 0; i < s.length; i++) {
+            // result += s[i];
+            result = s[i] + result;
+        }
+        console.log(result); // dlrow olleh
+        // s[0] + result => 'h' + ''
+        // s[1] + result => 'e' + 'h'
+        // s[2] + result => 'l' + 'eh'
+
+        // 2-2) while문
+        let count = 0;
+        let result2 = '';
+        while (count < s.length) {
+            result2 = s[count] + result2;
+            count++;
+        }
+        console.log(result2);
+
+        // 암기코드3
+        // 팩토리얼(5! = 1*2*3*4*%)
+        let ss = 1;
+        for (let i = 1; i < 6; i++) {
+            s *= i;
+        }
+
+        let sss = 1;
+        i = 1;
+        while (i < 6) {
+            sss *= i;
+            i += 1;
+        }
+        console.log(sss);
+    </script>
+</body>
+
+</html>
