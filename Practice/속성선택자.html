@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>속성선택자</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+
+        [class^='apple'] {
+            background: red;
+        }
+
+        [class|="apple"] {
+            color: white
+        }
+    </style>
+</head>
+
+<body>
+    <div class="apple">hihihihi</div> <!-- 선택 -->
+    <div class="apple-btn">hihihihi</div> <!-- 선택 -->
+    <div class="apple_btn">hihihihi</div> <!-- 선택-->
+    <div class="apple btn">hihihihi</div> <!-- 선택-->
+    <div class="btn apple">hihihihi</div> <!-- 선택안함 -->
+    <div class="btn-apple">hihihihi</div> <!-- 선택안함 -->
+
+    <script>
+        var copyObjectDeep = function (target) {
+            var result = {};
+            if (typeof target === 'object' && target !== null) {
+                for (var prop in target) {
+                    result[prop] = copyObjectDeep(target[prop]);
+                }
+            }
+            else {
+                result = target;
+            }
+            return result;
+        }
+    </script>
+</body>
+
+</html>
