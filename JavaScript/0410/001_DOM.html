@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+
+<body>
+    <!-- <p id="myTxt">hello</p>
+    <p class="txt1">hello</p>
+    <p>hello</p>
+    <p class="txt1">hello</p>
+    <p>hello</p> -->
+    점심 식단
+    <article id="container">
+        <ul>
+            <li>탕수육</li>
+            <li class="item-second">유산슬</li>
+            <li>짜장면</li>
+        </ul>
+    </article>
+    저녁 식단
+    <article>
+        <ul>
+            <li>된장국</li>
+            <li class="item-second">김치찌게</li>
+            <li>해장국</li>
+        </ul>
+    </article>
+    <script>
+        // console.log(document.getElementById("myTxt"))
+        // console.log(document.getElementsByTagName("p"))
+        // console.log(document.getElementsByClassName("txt1"))
+
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        console.log(document.getElementsByTagName("li"))
+        console.log(document.getElementsByTagName("li")[0])
+        console.log(document.getElementsByTagName("li")[1])
+
+        const container = document.getElementById('container');
+        console.log(container.querySelector('li')); // querySelector는 여러개의 요소가 선택되면 첫번째 요소를 반환
+        console.log(container.querySelector('#item-second')); // null
+        console.log(container.querySelector('.item-second'));
+        console.log(container.querySelectorAll('li'));
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        // HTMLCollection과 NodeList 차이
+        console.log(container.getElementsByTagName("li"))
+        console.log(container.querySelectorAll('li'));
+        // const target = document.querySelector('.item-second');
+        // target.remove()
+        container.querySelector('.item-second').textContent = '라조기';
+        container.querySelector('.item-second').classList.add('new');
+
+    </script>
+</body>
+
+</html>

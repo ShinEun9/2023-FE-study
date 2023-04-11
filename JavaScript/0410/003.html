@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+        }
+
+        div.red {
+            background-color: red;
+        }
+
+        div.green {
+            background-color: green;
+        }
+
+        div.yellow {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="red"></div>
+    <ul>
+        <li><button class="red">빨강</button></li>
+        <li><button class="yellow">노랑</button></li>
+        <li><button class="green">초록</button></li>
+    </ul>
+    <script>
+        const box = document.querySelector("div");
+        const buttons = document.querySelectorAll("button")
+        // const buttons = document.querySelectorAll("button[class^='btn']")
+        buttons.forEach(btn => btn.addEventListener('click', function () {
+            box.className = ''
+            box.classList.add(btn.className)
+        }))
+    </script>
+</body>
+
+</html>
