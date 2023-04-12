@@ -61,7 +61,7 @@ function hello() {
 function hello5() {
   if (true) {
     if (true) {
-      if (true) return;
+      if (true) return; // early return
     }
   }
   console.log("hello"); // 출력안됨.
@@ -112,15 +112,15 @@ function runPython({ user = "", time = 0, code = "", lv = 0 }) {}
 function 함수1(x, y) {
   return x + y;
 }
-// 위 함수를 화살표 함수로 작성하면 아래와 같습니다.
+// 위 함수를 화살표 함수로 작성하면 아래와 같다.
 let 함수1 = (x, y) => x + y;
 
-// 만악 함수 실행시 전달하는 인자가 한 개라면 소괄호를 생략할 수 있습니다.
+// 만악 함수 실행시 전달하는 인자가 한 개라면 소괄호를 생략할 수 있다.
 let 함수2 = (x) => {
-  return x + 10;
+  return x + y;
 };
 
-// 화살표 함수 내부에서 한 줄 표현식만 반환한다면 return 키워드를 생략해도 됩니다.
+// 화살표 함수 내부에서 한 줄 표현식만 반환한다면 return 키워드를 생략해도 된다.
 let 함수3 = (x) => x + 10;
 
 let 결과 = 함수3(2);

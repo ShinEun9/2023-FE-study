@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>생성자함수</title>
+</head>
+
+<body>
+    <script>
+        let book = {
+            책이름: "JS",
+            책가격: 5000,
+            저자: "홍길동",
+            출판일: "2023.04.12"
+        }
+
+        let newBook = {}
+        newBook['책이름'] = "TS"
+        newBook['책가격'] = 8000
+        newBook['저자'] = "홍길동"
+        newBook['출판일'] = "2023.04.12"
+
+        function Book(책이름, 책가격, 저자, 출판일) {
+            this.책이름 = 책이름
+            this.책가격 = 책가격
+            this.저자 = 저자
+            this.출판일 = 출판일
+        }
+        let newBook2 = Book("Jquery", 8000, "홍길동", "2023.04.12");
+        console.log(newBook2); // undefined, why? return 값없어서
+
+        let newBook3 = new Book("Jquery", 8000, "홍길동", "2023.04.12");
+        console.log(newBook3);
+
+        /////////////////////////////////////////////////////////////////////////
+        // new 키워드를 사용했을 때 일어나는일
+        // 
+        function Book(책이름, 책가격, 저자, 출판일) {
+            // this = {}
+            this.책이름 = 책이름
+            this.책가격 = 책가격
+            this.저자 = 저자
+            this.출판일 = 출판일
+            // return this 
+        }
+
+    </script>
+</body>
+
+</html>

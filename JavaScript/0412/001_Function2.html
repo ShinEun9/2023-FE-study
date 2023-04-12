@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function</title>
+
+
+</head>
+
+<body>
+    <script>
+        function 함수1(a, b) {
+            return a + b
+        }
+
+        function 함수2(a, b, c) {
+            const z = a + b + c
+            return z
+        }
+        function 함수3(a, b, c, d, e, f) {
+            return a
+        }
+        console.dir(함수1)
+        console.dir(함수2)
+        console.dir(함수3)
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        // 1. Object처럼 사용되는 함수의 특성
+        // array, object, function 모두 object 형태를 띄고 있음
+        함수1['location'] = 'seoul' // array, object, function ㅁ두 같은 방식으로 값을 변경하거나 값에 접근함
+        console.dir(함수1);
+        console.log(typeof 함수1) // function 출력
+
+        함수1['name'] = 'seoulFunc';
+        // console.dir(seoulFunc); // 에러남
+
+        함수1['length'] = 5;
+        console.dir(함수1); // 바뀌지 않음
+
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        // 2. argument가 순서대로 들어가는 함수의 특성
+        function 함수(a = 10, b = 20, c = 30) {
+            return a + b + c
+        }
+        console.log(함수()) // 60
+        console.log(함수(100)) // 150
+        console.log(함수(100, 200)) // 330
+        console.log(함수(100, 200, 300)) // 600
+        console.log(함수(c = 300)) // 350, 내가 예상했던 값은 10+20+300 = 330, 순서대로 들어가서 a에 300들어감
+        console.log(함수(a = 100, c = 300)) // 430, 내가 예상했던 값은 100+20+300 = 420, a에 100 b에 300들어감
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        // 3. roro 기법 원리 설명
+        // roro 기법은 무엇인가? 
+        // 아규먼트가 매우 많은 아래 함수의 경우 호출하는 쪽에서 어떤 값이 들어가는지 명확히 알기 어렵고 읽기 어렵다
+
+        function 로그인정보({
+            회원등급 = "Gold",
+            글쓰기 = true,
+            글읽기 = true,
+            채널관리 = true,
+            백업 = '1주일 이내 가능',
+            소셜로그인여부 = true
+        }) {
+            console.log(회원등급, 글쓰기, 글읽기, 채널관리, 백업, 소셜로그인여부);
+        }
+
+        로그인정보({
+            회원등급: 'Silver',
+            백업: '3일 이내 가능',
+        })
+
+        로그인정보({
+            // 중간에 생략된 값도 있고, 순서까지 바뀌었다.
+            회원등급: 'Silver',
+            백업: '3일 이내 가능',
+            소셜로그인여부: false,
+        })
+
+        // 원리
+        let one;
+        let two;
+        let three;
+        let four = { one, two, three }
+        // {one: undefined, two: undefined, three: undefined}
+        // 변수값을 object안에 넣으면 변수명이 key가 되고, 변수의 값이 object의 value가 되는 문법을
+        // 사용할 수 있게 된 것이 비교적 최근
+
+        // let { one, two, three } = { one: 10, two: 20, three: 30 }
+        // let { one, two, three } = { two: 20, one: 10, three: 30 }
+        // let { one:10, two, three } = { two: 20, one: 10, three: 30 } // error
+        // let { one = 10, two, three } = { two: 20, three: 30 }
+
+        // 살짝 심화
+        // 위 코드에서 로그인정보({}) 호출햇을 때에는 error 가 안나지만
+        // 로그인 정보() 로 호출했을 때는 error가 남
+
+        function 함수4({ a = 1, b = 2, c = 3 } = {}) {
+            console.log(a, b, c);
+            return a + b + c;
+        }
+
+        함수4();
+        함수4({});
+        함수4({ b: 100 });
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+</head>
+
+<body>
+    <script>
+        // Map: 키-값 쌍을 가지는 객체 자료형의 한 종류
+        let m = new Map();
+        m.set("하나", 1);
+        m.set(1, '하나')
+        m.set(true, 1);
+        m.set(false, 0);
+
+        // Map에 값에 접근하기
+        console.log(m.get("하나"))
+
+        // {[1,2,3]:1, {'하나':1}: 10} // 에러
+        // map은 키의값으로 object나 다른 array가 올 수 있다.
+        m.set([1, 2, 3], "hi");
+        console.log(m.get([1, 2, 3])) // undefined; 왜? 새로운 배열이라서
+
+        // 저게 가능하려면
+        let x = [11, 12, 13];
+        m.set(x, "hi");
+        console.log(m.get(x));
+
+        // Map의 값이 있는지 확인하기
+        console.log(m.has('하나')); // true
+
+        // Map의 값을 제거하기
+        m.delete('하나');
+        console.log(m.has('하나')); // false
+
+        // Map의 크기를 확인하기
+        console.log(m.size);
+
+        console.log(m);
+
+
+        //////////////////////////////////////////////////////////////////////////////////
+        const data = new Map() // 메서드체이닝?
+            .set('name', 'hojun')
+            .set('age', 10)
+            .set('height', 180)
+
+        //////////////////////////////////////////////////////////////////////////////////
+        // let data = new Map([['one', 1], ['two', 2]]) // O
+        // let data = new Map(Object.entries({ 'one': 1, 'two': 2 })) // O => 위와 같은 형식이 된다.
+        // let data = new Map({ 'one': 1, 'two': 2 }) // X => iterable한 객체여야한다.
+        // let data = new Map('hello world') // X
+        // let data = new Map([10, 20, 30, 40]) // X
+
+        // 직접 순회가 가능하지 않은 Object
+        let data2 = { 'one': 1, 'two': 2 };
+        for (const i of data2) {
+            // console.log(i); // 작동되지 않는다. => data is not iterable error
+        }
+
+        // 직접 순회가 가능하지 않은 Map
+        m.set('하나', 1) // 메서드 체이닝
+            .set('둘', 2)
+            .set('셋', 3)
+            .set('넷', 4)
+
+        for (const [key, value] of m) {
+            console.log(key, value);
+        }
+
+        // object의 단점
+        let test = { 'one': 1, 'two': 2 };
+        console.log(Object.keys(test));
+
+        // map은 메서드로 모두 호출 가능!
+        console.log(m.keys())
+        console.log(m.values())
+        console.log(m.entries())
+
+        // Map -> Object간의 형변환
+        let 맵 = new Map(Object.entries({ 'one': 1, two: '2' }))
+        let 오브젝트 = Obejct.fromEntries(맵);
+
+        // 키 값의 중복이 안됩니다.
+        let map = new Map();
+        map.set('이호준', 1)
+        map.set('이호준', 2)
+        map.set('이호준', 3)
+
+    </script>
+</body>
+
+</html>

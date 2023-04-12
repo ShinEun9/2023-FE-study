@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>재귀함수</title>
+</head>
+
+<body>
+    <script>
+        // 재귀함수(*)
+        // 다이나믹 프로그래밍, 메모라이징 기법 등을 사용하는 순간이 오게 되면 재귀함수 중요도가 (**)
+
+        // 재귀함수 => 내가 나를 호출하는 것
+        // 반복문으로 반복할 수 있는 것은 재귀함수로 만들 수 있음
+        // 재귀함수로 만들 수 있는 것은 반복문으로도 만들 수 있음
+        // 실무에서는 반복문 사용하자. 알고리즘 문제에서만 재귀를 호출할일 있다.
+
+        // 1. factorial
+        // 5! == 5 * 4 * 3 * 2 * 1
+        let result = 1;
+        for (let i = 1; i < 6; i++) {
+            result *= i;
+        }
+        console.log(result);
+
+        function factorial(n) {
+            if (n <= 1) {
+                return n; // early return: https://www.howdy-mj.me/javascript/early-return
+            }
+            return n * factorial(n - 1);
+        }
+        console.log(factorial(5));
+
+        ////////////////////////////////////////////////////////////////////////////////////
+        // 2. 누적합
+        // 1부터 1000까지 더하기.
+        let result2 = 0;
+        for (let i = 1; i < 1001; i++) {
+            result2 += i;
+        }
+        console.log(result2);
+
+        function sigma(n) {
+            if (n <= 1) {
+                return n
+            }
+            return n + sigma(n - 1)
+        }
+        console.log(sigma(1000));
+
+        // 누적합은 일일이 순회하지 않고 구할 수 있는 값이기 때문에 2개다 비효율적인 코드
+        // 특히 소수를 구하는 문제에서 2중 for문을 사용하는 것도 매우 비효율적
+        const n = 1000;
+        console.log(n * (n + 1) / 2);
+
+        ////////////////////////////////////////////////////////////////////////////////////
+        // 3. 문자열뒤집기
+        let result3 = ''
+        for (const i of 'hello') {
+            result3 = i + result3;
+        }
+        console.log(result3);
+
+        function reverse(txt) {
+            if (txt.length <= 1) {
+                return txt;
+            }
+            return reverse(txt.slice(1)) + txt[0];
+        }
+        console.log(reverse('hello'));
+        // 호출                 return                      최종값
+        // reverse('hello')     reverse('ello') + 'h'       'olle' + 'h' == 'olleh'
+        // reverse('ello')      reverse('llo') + 'e'        'oll' + 'e' == 'olle'
+        // reverse('llo')       reverse('lo') + 'l'         'ol' + 'l' == 'oll'
+        // reverse('lo')        reverse('o') + 'l'          'o' + 'l' == 'ol'
+        // reverse('o')         o                           'o'
+
+         ////////////////////////////////////////////////////////////////////////////////////
+        // 4. 팰린드롬
+        // https://kk3june.tistory.com/83 포스팅된 코드
+
+    </script>
+</body>
+
+</html>

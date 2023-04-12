@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>콜백함수</title>
+</head>
+
+<body>
+    <script>
+        // 콜백함수:  함수를 아규먼트로 전달해서 언젠가는 사용해줄게!
+        function 가장작은값에두배(a, b) { // Math.min을 아규먼트로 전달해서 언젠가는 사용할것이다. Math.min이 콜백함수
+            return b(...a) * 2
+        }
+        console.log(가장작은값에두배([10, 20, 11, 21, 19, 17], Math.min))
+
+
+        // (v, i)=> v * 2 : 콜백함수
+        let arr = [10, 20, 30];
+        arr.map((v, i) => v * 2);
+
+    </script>
+</body>
+
+</html>
