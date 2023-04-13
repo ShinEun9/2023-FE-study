@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this-call,apply,bind
+
+    </title>
+</head>
+
+<body>
+    <script>
+        // call(), appply(), bind()
+        // 1. call() : call() 메서드의 인수에 this 로 사용할 값을 전달
+        var peter = {
+            name: 'Peter Parker',
+            sayName: function () {
+                console.log(this.name);
+            }
+        }
+
+        var bruce = {
+            name: 'Bruce Wayne',
+        }
+        peter.sayName.call(bruce);
+
+        //////////////////
+        //  아규먼트를 전달가능
+        var peter2 = {
+            name: 'Peter Parker',
+            sayName: function (감탄사) {
+                console.log(this.name + 감탄사);
+            }
+        }
+
+        var bruce2 = {
+            name: 'Bruce Wayne',
+        }
+        peter2.sayName.call(bruce2, '!')
+
+        //////////////////////////////////////////////////////////////////////////////
+        // 2. apply(): apply() 메서드의 인수에 this 로 사용할 값을 전달할 수 있으며, 배열의 형태로도 전달가능
+        var peter3 = {
+            name: 'Peter Parker',
+            sayName: function (is, is2) {
+                console.log(this.name + ' is ' + is + ' or ' + is2);
+            }
+        }
+
+        var bruce3 = {
+            name: 'Bruce Wayne',
+        }
+
+        peter3.sayName.apply(bruce3, ['batman', 'richman']);
+
+        //////////////////////////////////////////////////////////////////////////////
+        // 3. bind:  this가 고정된 새로운 함수를 반환
+        function sayName() {
+            console.log(this.name);
+        }
+
+        var bruce4 = {
+            name: 'bruce',
+            sayName: sayName
+        }
+
+        var peter4 = {
+            name: 'peter',
+            sayName: sayName.bind(bruce4)
+        }
+
+        peter4.sayName();
+        bruce4.sayName();
+    </script>
+</body>
+
+</html>

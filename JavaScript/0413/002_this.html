@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this</title>
+</head>
+
+<body>
+    <script>
+        // this(***)
+        // this란 자신을 호출한 객체 또는 자신이 생성할 객체
+        // 1) 자신을 호출한 객체
+        function a() {
+            console.log(this) // a를 호출한 객체는 window, window를 출력
+        }
+        a()
+        // window.a();
+
+        let myObj = {
+            val1: 100,
+            func1: function () {
+                console.log(this)
+                // this는 누구일까? func1, myObj, window중에
+                // func1을 호출한 객체, myobj를 출력
+            }
+        }
+        myObj.func1();
+
+        let test = myObj.func1;
+        test();
+
+        ///////////////////////////////////////////////////////////////////////////
+        // this가 어려운 이유는 this를 포함하고 있는 객체가 있는 위치에 따라 this의 의미가 달라지기 때문
+
+        function sayName() {
+            console.log(this);
+        }
+        var c = {
+            'hello': 'world',
+            'say': sayName
+        }
+
+        // var b ={c}
+        var b = {
+            'c': c
+        }
+
+        var a = {
+            'b': b
+        }
+
+        sayName(); // window
+        c.say(); // c
+        b.c.say() // c
+        a.b.c.say(); // c 
+
+        ///////////////////////////////
+        function sayName2() {
+            console.log(this)
+        }
+
+        var cc = {
+            'hello': 'world',
+            'say': sayName2
+        }
+
+        var bb = {
+            'cc': cc,
+            'say': sayName2
+        }
+
+        var aa = {
+            'bb': bb,
+            'say': sayName2
+        }
+
+        aa.bb.say(); // bb
+        aa.say(); // aa
+        cc.say(); //cc
+        aa.bb.cc.say() //cc
+
+        /////////////////////////////////////////////////////////////////////////////
+
+    </script>
+</body>
+
+</html>

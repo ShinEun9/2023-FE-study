@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>set</title>
+</head>
+
+<body>
+    <script>
+        // 집합,교집합, 합집합, 차집합, 여집합
+        let s = new Set('aabbbcccdd');
+        console.log(s) // Set(4) {'a', 'b', 'c', 'd'} => 중복을 제거함
+
+        let 회사게시판 = ['a', 'a', 'b', 'b', 'b', 'c', 'd', 'e']
+
+        // 문제 1: 몇명이 게시판에 게시물을 썼나요?
+        let 게시자 = new Set(회사게시판);
+        console.log(게시자.size)
+
+        // 문제 2: 각각 몇개의 게시물을 작성하였나요?
+        for (const i of 게시자) {// 객체는 순회안됨
+            console.log(i, 회사게시판.filter(e => e === i).length)
+        }
+
+        let map = new Map();
+        for (const i of 회사게시판) {
+            map.set(i, (map.get(i) || 0) + 1); // map에 i가 없으면 0 + 1, map에 i가 있으면 map.get(i) + 1
+        }
+        console.log(map);
+
+        /////////////////////////////////////////////////////////////////////////////
+        // set 연습
+        let ss = new Set('aabbbcccddd')
+        console.log(ss.size)
+        console.log(ss.has('a'))
+        console.log(ss.has('f'))
+        ss.add('z');
+        for (const i of ss) {
+            console.log(i);
+        }
+
+        let sss = new Set('aabbbcccddd'.split(''));
+        sss = new Set(['a', 'a', 'b', 'b', 'b', 'c', 'c', 'c', 'd', 'd', 'd']) // 위와 같은 코드임
+
+        // array와 다르게 value가 2번반복
+        // IE10은 미지원
+        sss.forEach((a, b, set) => {
+            console.log(a, b, set)
+        })
+
+        // 교집합
+        let a = new Set('abc');
+        let b = new Set('cde');
+        console.log("a", a, "b", b)
+        let cro = [...a].filter(e => b.has(e));
+        console.log("교집합", cro)
+
+        // Q 교집합의 개수 구하는 문제
+        // https://school.programmers.co.kr/learn/courses/30/lessons/120903
+        function solution(s1, s2) {
+            s1 = new Set(s1);
+            s2 = new Set(s2);
+            let cro = [...s1].filter(e => s2.has(e));
+            return cro.length;
+        }
+        console.log(solution(["a", "b", "c"], ["com", "b", "d", "p", "c"]))
+
+        // 합집합
+        let union = new Set([...a].concat(...b))
+        union = new Set([...a, ...b]);
+        console.log("합집합", union)
+
+        // 차집합
+        let dif = [...a].filter(e => !b.has(e));
+        console.log("차집합", dif);
+
+        // set, map, object, array, string  가 이터러블 객체인지? 순서는 보장하는지?
+        // 이터러블한 객체란? 순회가 가능한 객체다
+        // set, map, array, string
+
+        // 순서를 보장하나요?
+        // set, map, array, string
+
+
+        //Q 소인수분해 
+        // https://school.programmers.co.kr/learn/courses/30/lessons/120852
+        function solution(n) {
+            let answer = [];
+
+            let i = 2;
+            while (i <= n) {
+                if (n % i === 0) {
+                    answer.push(i);
+                    n = n / i;
+                } else {
+                    i++;
+                }
+            }
+
+            return [...new Set(answer.sort((a, b) => (a > b ? 1 : -1)))];
+        }
+    </script>
+</body>
+
+</html>
