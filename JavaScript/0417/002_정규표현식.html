@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정규표현식</title>
+</head>
+
+<body>
+    <script>
+        // https://inpa.tistory.com/entry/JS-%F0%9F%93%9A-%EC%A0%95%EA%B7%9C%EC%8B%9D-RegExp-%EB%88%84%EA%B5%AC%EB%82%98-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-%EC%89%BD%EA%B2%8C-%EC%A0%95%EB%A6%AC
+
+        let s = 'paullab CEO leehojun hello CEO'
+        // 문자열 1개만 매칭되어 변경
+        console.log(s.replace("CEO", "CTO"));
+
+        // flag로 gloabl을 주어서 전체 변경(m-다중라인, i-대소문자구분X)
+        console.log(s.replace(/CEO/g, 'CTO'));
+
+        // 특정한 패턴을 찾아 Array로 반환
+        console.log(s.match(/CEO/g));
+
+        console.log(s.split(/CEO/g));
+
+        // 패턴이 들어가 있으면 true 없으면 false
+        console.log((/CEO/g).test(s))
+
+        // 알고리즘 문제 풀이할 때 주의 사항
+        // split을 하면 내가 원하는 갯수보다 1개가 더 추가되어 나온다
+        console.log('!a!abc!abcd'.split('!'))
+        console.log('!!!'.split('!')) // 4개
+        console.log('!a!a!a'.split('!')) // 4개
+        console.log('a!a!a!'.split('!')) // 4개
+
+        console.log('!a!a!a'.split('!').length - 1)
+
+
+        //////////////////////////////////////////
+        // 문제1. 특정문자 제거하기
+        // https://school.programmers.co.kr/learn/courses/30/lessons/120826
+
+        // 정답1
+        function solution(my_string, letter) {
+            // new RegExp(패턴으로 사용할 문자열, 플래그)
+            // replace에서만 사용되는 것이 아니라 정규표현식이 들어가는 모든 곳에서 사용가능
+            let reg = new RegExp(letter, 'g');
+            return my_string.replace(reg, '');
+        }
+
+        // 정답2
+        function solution(my_string, letter) {
+            return my_string.split(letter).join('');
+        }
+
+        // 오답1 - 1개만 바꿉니다.
+        // function solution(my_string, letter) {
+        //     return my_string.replace(letter, '');
+        // }
+
+        // 오답2 - 정규표현식 패턴은 문자열로 만드는 것이라 별도로 생성을 해주어야 합니다.
+        // function solution(my_string, letter) {
+        //     return my_string.replace(`/${letter}/g`, '');
+        // }
+
+
+        //////////////////////////////////////////
+        // 문제2. 숨어있는 숫자의 덧셈
+        // https://school.programmers.co.kr/learn/courses/30/lessons/120851
+
+        // 정답1: 숫자를 찾는다!
+        function sum(my_string) {
+            // return my_string.match(/[0-9]/g).map(x => parseInt(x)).reduce((a, b) => a + b, 0)
+            return my_string.match(/[0-9]/g).reduce((a, c) => a + parseInt(c), 0)
+        }
+
+        console.log(sum("1a2b3c4d123Z"))
+
+        // 정답2: 문자를 제거한다
+        function sum2(my_string) {
+            my_string.replace(/[^0-9]/g, "").split("").reduce((a, c) => a + parseInt(c), 0)
+        }
+
+
+        //////////////////////////////////////////
+        // 문제3. 369게임
+        // https://school.programmers.co.kr/learn/courses/30/lessons/120891
+
+        function solution369(order) {
+
+            // 요소가 없을 때를 생각해야한다.
+            // return order.toString().match(/[369]/g).length;
+
+            let value = order.toString().match(/[369]/g) ?? []
+            return value.length;
+        }
+        console.log(solution369(29423))
+
+        //////////////////////////////////////////
+        // 문제4. 잘라서 배열로 저장하기
+        // https://school.programmers.co.kr/learn/courses/30/lessons/120913
+
+        // "abc1Addfggg4556b".match(/[a-zA-Z0-9]{4}/g)
+        // "abc1Addfggg4556b".match(/[a-zA-Z0-9]{3}/g)
+        // "abc1Addfggg4556b".match(/\w{3}/g) // 문자
+        // "abc1Addfggg4556b".match(/\d{3}/g) // 숫자
+        // "abc1Addfggg4556b".match(/.{3}/g) // 모든문자
+        // "".match(/.{3}/g) // 주의 : null
+
+        function solutioncut(my_str, n) {
+            // let reg = new RegExp(`.{${n}}`, 'g'); // 마지막 남은 것도 리턴해줘야해서 오답
+            let reg = new RegExp(`.{1,${n}}`, 'g');
+            return my_str.match(reg);
+        }
+
+        //////////////////////////////////////////
+        // 문제5. 2번문제 업그레이드 
+        // https://school.programmers.co.kr/learn/courses/30/lessons/120864
+        function sum5(my_string) {
+            return (my_string.match(/[0-9]+/g) ?? []).reduce((a, c) => parseInt(a) + parseInt(c), 0)
+        }
+        console.log(sum5("aAb1B2cC34oOp"))
+
+        //////////////////////////////////////////
+        // 그룹 연습문제  
+        // 숫자 2자리와 알파벳 하나씩이 매칭되도록 다음의 패턴에서 문자열을 추출하시오. 
+        // '87a99b00fww89e' => ['87a', '99b', '00f', '89e']
+        "87a99b00fww89e".match(/[0-9]{2}[a-zA-Z]{1}/g)
+        '87a99b00fww89e'.match(/[0-9][0-9][a-zA-Z]/g)
+        '87a99b00fww89e'.match(/([0-9][0-9])([a-zA-Z])/g) // 숫자 그룹과 문자 그룹으로 나눕니다.
+        '87a99b00fww89e'.match(/([0-9]{2})([a-zA-Z])/g)
+        '87a99b00fww89e'.match(/(\d{2})([a-zA-Z])/g)
+
+        'gogaooogogooo'.match(/(go)/g); // ['go', 'go', 'go']
+        'gogaooogogooo'.match(/[go]/g); // ['g', 'o', 'g', 'o', 'o', 'o', 'g', 'o', 'g', 'o', 'o', 'o']
+
+        //////////////////////////////////////////////////////////
+        // 문제6. 
+        // https://jsalgo.co.kr/?page=2#
+        // 'a10b9r1ce33uab8wc918v2cv11v9'.match(/[rev][0-9]/g)
+
+        // 아래처럼 r, e, v 뒤에 숫자가 10이 있을 경우 오답
+        'a10b9r10ce33uab8wc918v2cv11v9'.match(/[rev][0-9]/g)
+        // ['r1', 'e3', 'v2', 'v1', 'v9']
+
+        // 아래처럼 뽑으면 e가 33이 뽑히므로 오답
+        'a10b9r10ce33uab8wc918v2cv11v9'.match(/[rev]\d+/g)
+
+        // function solution(data) {
+        //     let result = data.match(/([rev])(10|[0-9])/g).reduce((a, c) => a + parseInt(c.slice(1)), 0).toString()
+        //     return `${result[0]}월 ${result[1]}일`
+        // }
+
+
+        //////////////////////////////////////////////////////////
+        const string = `hojun, lee
+                        hojung, park
+                        harim, kim
+                        chaeun, kim`
+
+
+        let result1 = string.replace(/(\w+), (\w+)/gm, "$2 $1");
+        console.log(result1);
+        let result2 = string.replace(/(\w+), (\w+)/gm, "$1님 안녕하세요.");
+        console.log(result2);
+    </script>
+</body>
+
+</html>

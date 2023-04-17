@@ -10,9 +10,12 @@
 
 <body>
     <script>
-        let d = new Date();
-        console.log(d.getDate())
-        console.log(d.getMonth());
+        let d = new Date()
+
+        console.log(d.getDate()) // 1부터 시작합니다. 날짜를 출력
+        console.log(d.getMonth())// 0월부터 시작합니다. +1을 해야 함
+        console.log(d.getDay())// 0부터 시작합니다. 0은 일요일
+
         switch (d.getDay()) {
             case 0:
                 console.log('일요일')
@@ -40,10 +43,23 @@
                 break;
         }
 
-        // 다음처럼 표현하면 가독성이 훨씬 좋다. 여기에서 문제가 발생! 왜 1이(2월) 아닌가??
-        console.log(new Date('2023/1/20/10:00:00'))
+        console.log(d.getHours())
+        console.log(d.getMinutes())
+        console.log(d.getSeconds())
 
-        today = new Date() // today의 지정 로캘은 KST다.
+
+        console.log(d.getFullYear())
+        // d.getYear() // 1900년도부터 연도 계산, 쓰지 않음
+
+        console.log(new Date(2023, 5, 30)) // 6월을 표시하기 위해서는 -1을 해야 함. 월은 0부터 시작.
+        console.log(new Date(2023, 5, 30, 18))
+
+        // 다음처럼 표현하면 가독성이 훨씬 좋다. 여기에서 문제가 발생! 
+        new Date('2023/1/20/10:00:00')
+
+        let today = new Date() // today의 지정 로캘은 KST다.
+
+        /////////////////// 4월 13일 진도 /////////////////////
 
         //UTC와 today의 지정 로캘 KST와의 차이는 -9시간이다.
         today.getTimezoneOffset() / 60
