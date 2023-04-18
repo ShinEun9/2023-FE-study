@@ -121,6 +121,10 @@ h3 {
   box-sizing: border-box;
 }
 
+.container section {
+  flex-grow: 1;
+}
+
 @media (max-width: 1024px) {
   .container {
     flex-direction: column;
