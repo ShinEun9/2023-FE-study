@@ -1,0 +1,188 @@
+.heart {
+  font-size: 16px;
+  background: url(../img/heart.svg) no-repeat 0 center / 1.4em;
+  padding-left: 1.4em;
+}
+
+.diary-textarea {
+  width: 100%;
+  height: 360px;
+  resize: none;
+  padding: 16px;
+  box-sizing: border-box;
+  font-size: 16px;
+  /* 주석 처리하고 차이를 보면 묘하게 다르다, 부모로부터 상속해서 font같아지게 */
+  font-family: inherit;
+  /* text-area는 inline이다 */
+  display: block;
+  /* vertical-align: top; */
+}
+.diary-textarea::placeholder {
+  font-size: 16px;
+}
+
+.diary-main textarea {
+  margin: 16px 0;
+}
+
+/* article  */
+/* ul, li reset */
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+p,
+h3 {
+  margin: 0;
+}
+.diary-article {
+  border-color: #677880;
+  border-style: solid;
+  border-width: 4px 1px 1px 1px;
+  padding: 64px 48px;
+  position: relative;
+}
+.diary-article::before,
+.diary-article::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 40px;
+  position: absolute;
+}
+.diary-article::before {
+  top: -20px;
+  left: 30px;
+  background: #fffaf0 url(../img/quote-start.svg) no-repeat 0 0 / contain;
+}
+.diary-article::after {
+  bottom: -20px;
+  right: 30px;
+  background: #fffaf0 url(../img/quote-end.svg) no-repeat 0 0 / contain;
+}
+.article-title::before {
+  content: "";
+  display: block;
+  width: 100%;
+  border-top: 1px solid #677880;
+  position: absolute;
+  top: 4px;
+  left: 0;
+  z-index: -1;
+}
+.article-title {
+  font-size: 16px;
+  color: #29363d;
+  float: left;
+}
+.article-time {
+  color: #677880;
+  font-size: 12px;
+  float: right;
+}
+.article-content {
+  color: #5a6a72;
+  font-size: 14px;
+  line-height: 1.4;
+  clear: both;
+  margin-top: 40px;
+}
+
+/* layout */
+.container {
+  display: flex;
+  width: 1224px;
+  max-width: calc(100% - 60px);
+  margin: auto;
+  gap: 40px;
+}
+
+/*  후자 우선 법칙에 따라,,,, ? min-width도 적어줘야함? */
+/* @media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+  }
+  .container main {
+    border-right: 0px;
+    padding-right: 0px;
+    min-height: auto;
+  }
+} */
+
+.container main {
+  flex-basis: 456px;
+  flex-shrink: 0;
+  border-right: 1px solid #ff4f6e;
+  padding-top: 56px;
+  padding-right: 40px;
+  min-height: calc(100vh - 120px);
+  box-sizing: border-box;
+}
+
+.container section {
+  flex-grow: 1;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    gap: 0;
+  }
+  .container main {
+    border-right: 0px;
+    padding-right: 0px;
+    min-height: auto;
+  }
+}
+
+.container section {
+  padding-top: 94px;
+}
+
+.container section ul li {
+  margin-bottom: 76px;
+}
+
+.button-group {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  background: #fff;
+  border: 1px solid #677880;
+  border-radius: 20px;
+  width: 111px;
+  height: 40px;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-group button {
+  border: none;
+  width: 32px;
+  height: 32px;
+  background: none;
+  padding: 0;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+
+.button-group button:hover {
+  opacity: 1;
+}
+
+.button-group button img {
+  width: 100%;
+}
+.button-group span {
+  display: inline-block;
+  width: 1px;
+  height: 16px;
+  background: #d8ddde;
+  margin: 0 4px;
+}
