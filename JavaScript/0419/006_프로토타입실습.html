@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로토타입 실습</title>
+</head>
+
+<body>
+    <script>
+        //- 실습: 우리가 만들었던 음식 로봇객체의 메서드를 프로토타입으로 분리해보세요, 그리고 객체의 메서드가 서로 동일한 주소를 참조하는지 확인해보세요.
+        function FoodPicker(foodArray) { // 0~0.9999 * 3 => Math.floor(0 ~ 2.9999) => 0 ~ 2
+            this.food = foodArray;
+        }
+
+        FoodPicker.prototype.sayName = function () {
+            console.log(`삐리리 오늘의 메뉴는 ${this.food[Math.floor(Math.random() * this.food.length)]}`)
+        }
+
+        const robot1 = new FoodPicker(['짜장면', '청국장', '김치찌개'])
+        const robot2 = new FoodPicker(['삼겹살', '청국장', '김치찌개'])
+        console.log(FoodPicker.prototype.sayName === robot1.__proto__.sayName); // true
+        console.log(robot1.__proto__.sayName === robot2.__proto__.sayName); // true
+
+
+        // - 실습2: 우리가 객체지향 개념에서 만들었던 ‘나’ 와 ‘대상’ 객체를 생성자를 통해서 만들어 볼 수 있도록 코드를 수정해봅시다.
+        function Teacher() {
+            this.name = "웨이드";
+            this.address = "제주";
+            this.phoneNum = "010-8011-6536"
+        }
+
+        Teacher.prototype.canWalk = function () {
+            console.log("웨이드가 걷는다.")
+        }
+
+        Teacher.prototype.teaching = function (myStudent) {
+            myStudent.levelUp();
+        }
+
+        function Student() {
+            this.level = 1;
+        }
+
+        Student.prototype.levelUp = function () {
+            this.level++;
+        }
+
+        const jaehyun = new Teacher();
+        const eunsu = new Student();
+        jaehyun.teaching(eunsu);
+        console.log(eunsu);
+
+
+        // const me = {
+        //     name: '웨이드',
+        //     address: '제주도 제주시 인다 1길',
+        //     phoneNum: '010-8001-6536',
+        //     canWalk: function () {
+        //         console.log('웨이드가 걷는다.');
+        //     },
+        //     teaching: function (myStudent) {
+        //         myStudent.levelUp();
+        //     }
+        // }
+        // const student = {
+        //     level: 1,
+        //     levelUp: function () {
+        //         this.level++;
+        //     }
+        // }
+
+    </script>
+</body>
+
+</html>

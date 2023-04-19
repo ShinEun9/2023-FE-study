@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체지향-추상화</title>
+</head>
+
+<body>
+    <script>
+        const me = {
+            name: '웨이드',
+            address: '제주도 제주시 인다 1길',
+            phoneNum: '010-8001-6536',
+            canWalk: function () {
+                console.log('웨이드가 걷는다.');
+            },
+            teaching: function (myStudent) {
+                myStudent.levelUp();
+            }
+        }
+        const student = {
+            level: 1,
+            levelUp: function () {
+                this.level++;
+            }
+        }
+
+        me.teaching(student);  // 객체와 객체가 서로 메소드를 통해 상호작용하게 만드는 것을 바로 객체지향 프로그래밍
+        console.log(student);
+
+        // 만들어낸 객체는 한번 생성하고 나면 끝임.
+        // 예를 들어 me와 같은 프로퍼티를 가지는 객체를 생성하기 위해서는 지금 상태에서는 우리가 작성했던 코드를 반복하는 수밖에 없음
+
+    </script>
+</body>
+
+</html>

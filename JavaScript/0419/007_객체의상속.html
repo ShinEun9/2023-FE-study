@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체의 상속</title>
+</head>
+
+<body>
+    <script>
+        // const obj = {
+        //     name: 'test'
+        // }
+        // console.log(obj.hasOwnProperty('name')); // true
+
+        // const arr = [1, 2, 3];
+        // console.log(arr.hasOwnProperty('name')); // false
+        // console.log(arr.hasOwnProperty('0')); // true
+        // console.log(arr.hasOwnProperty('3')); // false
+        // console.log(arr.hasOwnProperty('length')); // true
+
+        // console.log(arr.__proto__ === Array.prototype) // true
+
+        // Array 함수의 __proto__ 가 Object 함수의 __proto__ 를 참조하고 있기 때문에 Array의 prototype에 존재하지 않는 Object 객체의 프로퍼티와 메서드를 사용할 수 있음
+
+        // 이처럼 자기 자신에게 존재하지 않는 프로퍼티나 메서드를 프로토타입을 통해 추적하는 과정을 프로토타입 체이닝이라 함
+
+        function Parent() {
+            this.name = '재현';
+        }
+        Parent.prototype.rename = function (name) {
+            this.name = name;
+        }
+        Parent.prototype.sayName = function () {
+            console.log(this.name);
+        }
+
+        const parent = new Parent();
+        parent.sayName()
+        parent.rename('호준')
+        parent.sayName()
+
+        function Child() {
+            Parent.call(this);
+            // call 함수는 Child 함수의 this가 Parent 생성자 함수의 this를 바라보게 만듭니다. 즉, Child 를 통해 생성된 인스턴스의 this 가 Parent 함수안의 프로퍼티에 접근할 수 있게함.
+        }
+
+        Child.prototype = Object.create(Parent.prototype); // 그리고 Object.create 함수는 주어진 인자를 Child.prototype에 연결하는 역할을 합니다. 즉 Parent 객체의 프로토타입을 Child 객체의 프로토타입이 참조하게 함
+
+        // 위의 두 가지 과정을 통해 Child 객체는 Parent 객체의 모든 것을 상속받게 됨.
+        Child.prototype.canWalk = function () {
+            console.log('now i can walk!!');
+        }
+
+        const child = new Child();
+        console.log(child.name);
+        child.canWalk()
+        child.sayName();
+        child.rename("호준");
+        child.sayName();
+
+    </script>
+</body>
+
+</html>

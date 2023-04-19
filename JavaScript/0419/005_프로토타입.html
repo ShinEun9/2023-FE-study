@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로토타입</title>
+</head>
+
+<body>
+    <script>
+        // 100개의 객체를 생성할때마다 역시 100개의 함수를 새로 만들고 있는것
+        function NewFactory(name) {
+            this.name = name;
+            this.sayYourName = function () {
+                console.log(`삐리비리. 제 이름은 ${this.name}입니다. 주인님.`);
+            }
+        }
+
+        const robot1 = new NewFactory("브랜든");
+        const robot2 = new NewFactory("피터");
+        console.log(robot1.sayYourName === robot2.sayYourName); // false
+
+        /////////////////////////////////////////////////////////////////////////
+        function NewFactory2(name) {
+            this.name = name;
+        }
+
+        // prototype이라는 프로퍼티는 자동으로 JS 엔진이 만들어준다. ?
+        // prototype은 특정 객체에 대한 참조, 어떠한 공간을 가르키고 있음. 
+        NewFactory2.prototype.sayYourName = function () {
+            console.log(`삐리비리. 제 이름은 ${this.name}입니다. 주인님.`);
+        }
+
+        const robot3 = new NewFactory2("은수");
+        const robot4 = new NewFactory2("은구")
+        console.log(robot3.sayYourName === robot4.sayYourName) // true
+
+        // prototype은 (생성자)함수에 있고, __proto__ 는 인스턴스에 있다.
+        console.log(NewFactory2.prototype === robot3.__proto__) // true
+        // console.log(NewFactory2.prototype === robot4.__proto__) // true
+        // console.log(robot3.__proto__ === robot4.__proto__) // true
+
+        // new역할
+        // 1. this랑 인스턴스를 연결,
+        // 2. 생성자 함수의 prototype과 인스턴스의 __proto__ 가 연결
+    </script>
+</body>
+
+</html>
