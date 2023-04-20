@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클래스</title>
+</head>
+
+<body>
+    <script>
+        // class Robot {
+        //     constructor(name) {
+        //         this.name = name;
+        //     }
+        //     sayYourName() {
+        //         console.log(`삐리비리. 제 이름은 ${this.name}입니다. 주인님.`);
+        //     }
+        // }
+
+        // class BabyRobot extends Robot {
+        //     constructor(name) {
+        //         super(name);
+        //         this.ownName = '아이크';
+        //     }
+        //     sayBabyName() {
+        //         this.sayYourName();
+        //         console.log('Suceeding you, Father!');
+        //     }
+        // }
+
+        // const babyrobot1 = new BabyRobot("아이크 아빠");
+        // console.log(babyrobot1.name);
+        // console.log(babyrobot1.ownName)
+        // babyrobot1.sayYourName();
+        // babyrobot1.sayBabyName();
+
+        // - 실습 : 소시지를 만드는 클래스를 정의해봅시다.
+        // 1. 생성자 함수는 두 가지 매개변수를 전달 받을 수 있으며 전달되는 매개변수에 따라 소시지의 맛이 결정됩니다.
+        // 2. 소시지 객체는 taste 라는 메서드가 존재합니다. 생성자함수에서 전달받은 재료에 따라 맛을 나타내는 콘솔로그를 출력하는 역할을 합니다. (예시 : ‘소고기’ 와 ‘파’ 를 매개변수로 전달하였을 경우, ‘소고기와 파 맛이 난다!’ 는 콘솔 메세지를 출력합니다.)
+        // 3. 소시지 클래스를 상속받는 FiresSausage 파생클래스를 생성해봅니다. 파생클래스의 taste 메서드를 실행하면 콘솔 메세지에 불맛이 나기 시작합니다.
+
+        class Sausage {
+            constructor(item1, item2) {
+                this.item1 = item1;
+                this.item2 = item2;
+            }
+            taste() {
+                console.log(`${this.item1}맛과 ${this.item2}맛이 난다`)
+            }
+        }
+
+        class FireSausage extends Sausage {
+            constructor(item1, item2) {
+                super(item1, item2);
+                this.item3 = "불"
+            }
+
+            // 오버로딩(다른언어에서)
+            // taste(item1) { }
+            // taste(item1, item2) { }
+            // taste(item1,item2,item3){}
+
+            // 오버라이딩
+            taste() {
+                console.log(`${this.item3}맛이 나기 시작한다`)
+            }
+        }
+
+        const firesausage = new FireSausage("소고기", "파")
+        firesausage.taste();
+    </script>
+</body>
+
+</html>

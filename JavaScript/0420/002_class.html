@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클래스 비공개프로퍼티</title>
+</head>
+
+<body>
+    <script>
+        class Robot {
+            #password
+
+            constructor(name, pw) {
+                this.name = name;
+                this.#password = pw;
+            }
+
+
+            sayYourName() {
+                console.log(`삐리비리. 제 이름은 ${this.name}입니다. 주인님.`);
+            }
+
+            getPassword() {
+                return this.#password
+            }
+
+            setPassword(pw) {
+                this.#password = pw;
+            }
+        }
+
+        /////////////////////////////////////////////////////////////////////////////
+        // 생성자 함수에서 비공개 프로퍼티 => 클로저를 사용한다
+        function PersonGenerator() {
+            let age = 25;
+
+            function InnerPersonType() { };
+            InnerPersonType.prototype.getAge = function () {
+                return age
+            }
+
+            return InnerPersonType;
+        }
+
+        const person = new PersonGenerator();
+        console.log(person.age) // undefined
+
+        const Person = PersonGenerator()
+        const myPerson = new Person();
+        console.log(myPerson.getAge()) //25
+
+        //////////////////////////
+        const PersonGenerator2 = (function () {
+            let age = 25;
+
+            function InnerPersonType() { };
+            InnerPersonType.prototype.getAge = function () {
+                return age
+            }
+
+            return InnerPersonType;
+        })();
+
+        const myPerson2 = new PersonGenerator2();
+        console.log(myPerson2.getAge()) //25
+
+
+
+    </script>
+</body>
+
+</html>

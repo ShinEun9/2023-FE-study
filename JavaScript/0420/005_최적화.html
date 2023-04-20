@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>최적화</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background: pink;
+            /* transition: .2s; */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+    </div>
+    <script>
+        const box = document.querySelector(".box")
+        let pos = 0
+        // 사용자가 어떤 키를 눌렀는지 정보를 저장하는 객체
+        let keys = {};
+
+        // 사용자가 키를 눌렀을 때 실행
+        function move(event) {
+            keys[event.key] = true;
+            console.log(keys)
+        }
+
+        // 사용자가 키에서 손을 뗄 때 실행
+        function stop(event) {
+            keys[event.key] = false;
+            console.log(keys)
+
+
+        }
+
+        document.addEventListener("keydown", move);
+        document.addEventListener("keyup", stop);
+        function play() {
+            if (keys.ArrowRight) {
+                pos += 15;
+                box.style.transform = `translateX(${pos}px)`
+            }
+            if (keys.ArrowLeft) {
+                pos -= 15;
+                box.style.transform = `translateX(${pos}px)`
+            }
+            requestAnimationFrame(play) // 브라우저에 변화가 있을 때 다음 프레임에 이 play라는 함수가실행될 거라고 (requestAnimationFrame이) 미리 알려줌
+        }
+
+        play(); // play 함수가 계속 실행되면서 keys.ArrowRight이 true가 되는 것만 기다린 후 true가 되면  바로 작동. (keys.ArroLeft도 마찬가지)
+
+
+        // document.addEventListener("keydown", move)
+        // function move(event) {
+        //     const keyName = event.key;
+        //     if (keyName === "ArrowRight") {
+        //         // 오른쪽으로 이동
+        //         console.log(keyName);
+        //         pos += 15
+        //         box.style.transform = `translateX(${pos}px)`
+        //     }
+        //     else if (keyName === "ArrowLeft") {
+        //         // 왼쪽으로 이동
+        //         console.log(keyName);
+        //         pos -= 15
+        //         box.style.transform = `translateX(${pos}px)`
+        //     }
+        // }
+
+    </script>
+</body>
+
+</html>
