@@ -1,0 +1,53 @@
+/* reset  */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: black;
+}
+
+button {
+  display: block;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+/* style */
+.calculator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  width: 50%;
+  height: 80%;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 10px;
+  color: white;
+}
+
+.output-box {
+  grid-area: 1/1/1 / span 4;
+}
+
+button:nth-last-child(3) {
+  grid-area: 6/1/7 / span 2;
+}
+
+.darkgrey {
+  background-color: #313131;
+}
+
+.orange {
+  background-color: #f69906;
+}
+
+.lightgrey {
+  background-color: #989898;
+}
