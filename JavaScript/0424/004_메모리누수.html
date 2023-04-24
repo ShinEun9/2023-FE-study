@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        // case1
+        let me = { age: 25 }; // me에는 객체에 대한 주소값이 들어감, 객체에 대한 참조카운트: 1
+        let you = me; // you에는 객체의 주소가 들어감, 객체에 대한 참조카운트: 2
+
+        me = null; // 메모리에서 해제, 참조카운트: 1
+        you = null; // 참조카운트: 0
+
+        // case2
+        let x = {
+            y: {
+                z: 1
+            }
+        }
+
+        // x가 참조하는 객체를 object1, y가 참조하는 객체를 objec2라 하자
+        let a = x; // object1 참조카운트: 2 (x, a)
+        x = 1; // object1 참조카운트: 1 (a)
+
+        let b = a.y; // object2의 참조카운트: 2(a.y, b)
+        a = 2; // object1 참조카운트: 0, objectt2 참조카운트: 1(b)
+
+        // b가 object2를 참조하기 때문에 object1 객체는 제거되지 않음
+        // object1 객체는 사용하진 않지만 불필요하게 남아있게 됨
+        // 이러한 상황을 메모리 누수라고 함
+
+        // => 예전에는 객체끼리 서로 맞물려있어 제거되지 않던 문제(순환 참조 문제)가 있었지만 최신 브라우저에서는 마크스위프(Mark and Sweep) 알고리즘을 사용하여 이런 문제가 해결되어 있음
+
+        // case3 - 클로저 메모리 누수
+        function outer() {
+            let privateVal = ['test'];
+            function getPrivate() {
+                return privateVal
+            }
+            return getPrivate;
+        }
+        const getPrivate = outer(); // outer함수가 실행이 되어도, privateVal이 메모리에서 해제 되지 않음?
+        const secretVal = getPrivate();
+        console.log(secretVal);
+        // secretVal = null;
+
+    </script>
+</body>
+
+</html>

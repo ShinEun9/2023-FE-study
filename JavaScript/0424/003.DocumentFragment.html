@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocumentFragment</title>
+</head>
+
+<body>
+    <main></main>
+    <script>
+        // const parentEl = document.querySelector("main");
+        // for (let i = 0; i < 10; i++) {
+        //     const article = document.createElement('article');
+        //     article.classList.add('parent');
+        //     article.innerHTML = `<figure>
+        //         <img class="figImg"
+        //             src="https://file.mk.co.kr/meet/neds/2021/07/image_readtop_2021_654175_16256093474708254.jpg"
+        //             alt="">
+        //         <figcaption class="figCap">
+        //             유재석씨가 수상식에서 환하게 웃고 있다.
+        //         </figcaption>
+        //     </figure>`;
+
+        //     parentEl.append(article);
+        // }
+
+        ///////////////////////////////////////////////////////////////////////////////
+        const parentEl = document.querySelector("main");
+        const frag = document.createDocumentFragment();
+        for (let i = 0; i < 10; i++) {
+            const article = document.createElement('article');
+            article.classList.add('parent');
+            article.innerHTML = `<figure>
+                <img class="figImg"
+                    src="https://file.mk.co.kr/meet/neds/2021/07/image_readtop_2021_654175_16256093474708254.jpg"
+                    alt="">
+                <figcaption class="figCap">
+                    유재석씨가 수상식에서 환하게 웃고 있다.
+                </figcaption>
+            </figure>`;
+
+            frag.append(article);
+        }
+
+        // parentEl.append(frag);
+        // parentEl.append(frag);
+        // parentEl.append(frag);
+        // parentEl.append(frag);
+        // 40개가 될까? 안됨
+        parentEl.append(frag.cloneNode(true)); // 복사본이 붙음
+        parentEl.append(frag.cloneNode(true)); // 복사본이 붙음
+        parentEl.append(frag.cloneNode(true)); // 복사본이 붙음
+        parentEl.append(frag.cloneNode(true)); // 복사본이 붙음
+
+        // Document Fragment를 루트 노드로 만든 DOM Tree를 사용하면, DOM과 관련된 작업을 페이지에 영향을 주지 않고 적용해서, 한번만 DOM 접근으로 적용할 수 있다
+        // 가상돔은 실제 돔이 아니라 메모리상에만 존재하는 돔
+        // 그냥 돔으로 사용했을 때는 붙이고 렌더링 붙이고 렌더링을 반복
+
+
+        ///////////////////////////////////////////////////////////////////////////////
+        // 이코드가 안되는 이유: 붙여야할 요소는 여러개를 만들어야한다.
+        // const frag = document.createDocumentFragment();
+        // const article = document.createElement('article');
+        // article.classList.add('parent');
+        // article.innerHTML = `<figure>
+        //                         <img class="figImg" src="https://file.mk.co.kr/meet/neds/2021/07/image_readtop_2021_654175_16256093474708254.jpg"
+        //                             alt="">
+        //                         <figcaption class="figCap">
+        //                             유재석씨가 수상식에서 환하게 웃고 있다.
+        //                         </figcaption>
+        //                     </figure>`;
+
+        // for (let i = 0; i < 10; i++) {
+        //     frag.append(article);
+        // }
+
+        // document.querySelector('main').append(frag);
+    </script>
+</body>
+
+</html>

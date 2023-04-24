@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>좋은 습관 기르기</title>
+</head>
+
+<body>
+    <script>
+        // 1. 기존에 사용했던 원본 데이터는 그대로 두고 새로운 배열을 만들어 사용하는 습관을 들이자
+        const aespa = ["카리나", "윈터", "지젤", "닝닝"];
+        const aespa2 = aespa.map((item) => `${item}💖`);
+        console.log(aespa, aespa2)
+
+        // 2. 엄격모드(strict mode)로 사용하기
+        'use strict'
+        // 1) 선언하지 않은 변수에 값을 할당할 수 없음
+        // a = 10;
+        // 2) 읽기 전용 객체에 값을 할당하면 에러가 발생 (일반 모드에서는 조용한 에러 —> 무시 처리) undefined = 10; => 그래도 undefined이긴 함, null = 10;
+        // 3) 지울수 없는 값을 지우려고 하면 에러가 발생 (일반 모드에서는 조용한 에러 —> 무시 처리)
+        // delete Object.prototye;
+        // 4) 함수 파라메터에 중복된 이름을 사용할 수 없음
+        // function myFunc(a, a, b) {
+        //     console.log(a + a + b);
+        // }
+
+        // 3. 일치연산자 사용하기
+        console.log(1 == 1) //
+        console.log(1 == '1') // 
+        console.log(1 == 2) // f
+        console.log('' == false) // true
+        console.log([] == false)// true
+        console.log(![]) // false 
+        console.log(null == undefined) // true
+    </script>
+</body>
+
+</html>

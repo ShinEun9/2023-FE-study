@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocumentFragment</title>
+</head>
+
+<body>
+    <div id="parent"></div>
+    <script>
+        // <html>이나 <body> 같은 html문서의 태그들을 JavaScript가 이용할 수 있는 객체(object)로 만들면 그것을 문서 객체라 함
+        // DocumentFragment
+        const parent = document.querySelector("#parent");
+        const txt = document.createElement('p');
+        txt.textContent = '문자입니다.'
+        const frag = document.createDocumentFragment();
+        frag.append(txt);
+
+        // console.log(frag);
+        parent.append(frag);
+
+    </script>
+</body>
+
+</html>
