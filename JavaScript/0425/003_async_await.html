@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>async, await</title>
+</head>
+
+<body>
+    <script>
+        async function message() {
+            let hello = await new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve('hello');
+                }, 100)
+            })
+
+            let world = await new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve('world');
+                }, 100)
+            })
+
+            // console.log(`${hello} ${world}`);
+            return `${hello} ${world}`
+        }
+
+        message().then((res) => {
+            console.log(res);
+            console.log("asnyc를 쓰면 해당함수는 프로미스 객체를 반환한다.")
+        })
+    </script>
+</body>
+
+</html>
