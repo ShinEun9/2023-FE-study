@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>callbackFunc & this - CoreJS Chapter4읽고</title>
+</head>
+
+<body>
+    <script>
+        // 예제1
+        // var obj1 = {
+        //     name: 'obj1',
+        //     func: function () {
+        //         return function () {
+        //             console.log(this)
+        //         }
+        //     }
+        // };
+
+        // var obj2 = {
+        //     name: 'obj2',
+        //     func: obj1.func
+        // }
+        // var callback = obj2.func();
+        // setTimeout(callback, 1500)
+
+        // 예제2 -p105
+        var obj1 = {
+            name: 'obj1',
+            func: function () {
+                var self = this;
+                console.log(this);
+                return function () {
+                    console.log(this);
+                    console.log(self)
+                }
+            }
+        };
+
+        var obj2 = {
+            name: 'obj2',
+            func: obj1.func
+        }
+
+        // var obj2 = {
+        //     name: 'obj2',
+        //     func: function () {
+        //         var self = this;
+        //         return function () {
+        //             console.log(self)
+        //         }
+        //     }
+        // }
+        var callback2 = obj2.func();
+        setTimeout(callback2, 2000)
+
+
+        // 예제3
+        // var obj1 = {
+        //     name: 'obj1',
+        //     func: function () {
+        //         var self = this;
+        //         return function () {
+        //             console.log(self)
+        //         }
+        //     }
+        // };
+        // var obj3 = { name: "obj3" }
+        // var callback3 = obj1.func.call(obj3);
+        // setTimeout(callback3, 3000);
+    </script>
+</body>
+
+</html>
