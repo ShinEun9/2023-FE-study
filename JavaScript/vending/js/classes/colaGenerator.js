@@ -8,6 +8,7 @@ class ColaGenerator {
     this.colaFactory(response);
   }
 
+  // 콜라 정보를 가져옴
   async loadData() {
     try {
       const response = await fetch("./items.json");
@@ -22,6 +23,7 @@ class ColaGenerator {
     }
   }
 
+  // 받은 콜라 정보를 바탕으로 화면에 콜라를 그림
   colaFactory(data) {
     const frag = document.createDocumentFragment();
     data.forEach((el) => {
