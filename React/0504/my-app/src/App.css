@@ -1,0 +1,16 @@
+/* ul {
+  border: 1px solid black;
+}
+
+li:not(:last-child) {
+  border-bottom: 1px solid black;
+} */
+
+/* 형제 선택자를 사용할수도있다 */
+li {
+  border: 1px solid black;
+}
+
+li + li {
+  border-top: none;
+}
