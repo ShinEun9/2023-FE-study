@@ -1,0 +1,204 @@
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "OTEnjoystoriesBA";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/OTEnjoystoriesBA.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GmarketSansMedium";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  background-color: #5b2386;
+  font-family: "GmarketSansMedium";
+}
+
+h1 {
+  width: 564px;
+  height: 265px;
+  display: flex;
+  align-items: center;
+  background: url(../public/img/clock.png) no-repeat center;
+}
+
+.a11y-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+img {
+  width: 100%;
+}
+
+h2 {
+  font-family: "OTEnjoystoriesBA";
+  color: #f5df4d;
+  font-weight: 700;
+  font-size: 36px;
+}
+
+h3 {
+  text-align: center;
+  min-width: 493px;
+  font-weight: 700;
+  font-size: 17px;
+  color: white;
+  max-width: 373px;
+  background: url(../public/img/quotes.png) no-repeat center;
+}
+
+h3 strong {
+  font-size: 20px;
+}
+
+.form-box {
+  text-align: center;
+  color: white;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 27px;
+}
+
+.form-box div:not(:last-child) {
+  margin-bottom: 27px;
+}
+
+input {
+  font: inherit;
+  background: #ffffff;
+  width: 228px;
+  height: 57px;
+  border-radius: 7px;
+  margin: 0px 17px;
+  padding: 17px;
+  text-align: center;
+}
+
+input::placeholder {
+  color: #babcbe;
+}
+
+button {
+  cursor: pointer;
+  padding: 21px 49px;
+  background: #fcee21;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 56px;
+  font: inherit;
+  font-weight: 700;
+  font-size: 24px;
+  color: #5b2386;
+  border: 0;
+}
+button.white {
+  background-color: white;
+}
+
+.submit-box {
+  position: relative;
+}
+
+.submit-box::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  display: inline-block;
+  width: 64px;
+  height: 72px;
+  background: url("../public//img/click.png");
+}
+
+.loading-box {
+  width: 100px;
+  height: 100px;
+}
+
+img.infinite_rotating_logo {
+  animation: rotate_image 1s linear infinite;
+}
+
+@keyframes rotate_image {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.result-box {
+  display: "none";
+  font-size: 24px;
+  color: #ffffff;
+  font-weight: 400;
+  text-align: center;
+}
+
+.result-box div:not(:last-child) {
+  margin-bottom: 17px;
+}
+
+.result-box strong {
+  font-weight: 700;
+  font-size: 72px;
+  margin: 0px 12px;
+}
+
+.popup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+  height: 600px;
+  background-color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* display: none; */
+  z-index: 100;
+  color: #5b2386;
+}
+
+.popup strong {
+  font-family: "OTEnjoystoriesBA";
+  font-weight: 700;
+  font-size: 96px;
+}
+.popup p {
+  font-family: "OTEnjoystoriesBA";
+  font-weight: 700;
+  font-size: 36px;
+}
+.popup img {
+  width: 433px;
+  margin-bottom: 20px;
+}
+
+/* 검은배경 */
+.dim {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* display: none; */
+}
