@@ -1,0 +1,130 @@
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* reset  */
+p {
+  margin: 0;
+}
+* {
+  box-sizing: border-box;
+  font-family: Pretendard-Regular;
+}
+
+/* styling */
+
+body {
+  background: radial-gradient(
+    96.74% 276.79% at 3.59% 5.28%,
+    #f0f4ff 0%,
+    #a5b6ee 100%
+  );
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+}
+
+.timer {
+  width: 400px;
+  height: 360px;
+  background: linear-gradient(144.07deg, #5572bb 2.13%, #374b7c 102.97%);
+  box-shadow: 20px 20px 60px 10px rgba(55, 75, 124, 0.4);
+  border-radius: 16px;
+  color: white;
+  padding: 44px 44px 40px 44px;
+}
+
+.timer h2 {
+  padding-bottom: 23px;
+  border-bottom: 1px solid #5b75b4;
+  text-align: center;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.timer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 30px 0px 40px;
+}
+.timer-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.timer-box label {
+  font-weight: 700;
+  font-size: 12px;
+  color: #a5b6ee;
+}
+
+.circle {
+  width: 6px;
+  height: 6px;
+  background: #8198d0;
+  border-radius: 50%;
+}
+
+.circle:first-child {
+  margin-bottom: 14px;
+}
+
+input {
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 40px;
+  color: white;
+
+  background: linear-gradient(314.28deg, #304577 0%, #4c65a0 83%);
+  border: 1px solid #354971;
+  border-radius: 4px;
+}
+
+.button-box {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+button {
+  cursor: pointer;
+  width: 112px;
+  height: 48px;
+  background: #324577;
+  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.05);
+  border-radius: 50px;
+  border: 0;
+  color: #617199;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  /* font: inherit; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+button img {
+  width: 13.26px;
+  height: 14px;
+}
+
+body > p {
+  font-weight: 400;
+  font-size: 14px;
+  color: #8596bf;
+}
