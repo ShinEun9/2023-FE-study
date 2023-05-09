@@ -6,6 +6,9 @@ let totalSeconds;
 
 inputs.forEach((item) => {
   item.addEventListener("keydown", () => {
+    startBtn.disabled = false;
+    resetBtn.disabled = false;
+
     const startImg = document.querySelector("svg.start > path");
     const resetImg = document.querySelector("svg.reset > path");
 
@@ -31,6 +34,7 @@ function updateTimer() {
   if (totalSeconds <= 0) {
     clearInterval(timer);
     alert("타이머가 종료되었습니다.");
+    toStartBtn();
     return;
   }
   var hours = Math.floor(totalSeconds / 3600);
@@ -83,9 +87,10 @@ function toStartBtn() {
           START
           `;
   const startImg = document.querySelector("svg.start > path");
+
   startImg.setAttribute("fill", "white");
   startBtn.style.setProperty("background", "#5180FF");
-
+  startBtn.style.setProperty("color", "white");
   startBtn.classList.remove("active");
 }
 
