@@ -36,48 +36,56 @@ function App() {
     }, 2000);
   }
   return (
-    <div>
-      <h1>
+    <section>
+      <h1 class="title">
         <a href="#">
           <img src="img/title.png" alt="" />
           <span className="a11y-hidden">1만 시간의 법칙</span>
         </a>
       </h1>
-      <h2>"연습은 어제의 당신보다 당신을 더 낫게 만든다."</h2>
-      <h3>
-        <strong>1만 시간의 법칙</strong>은
-        <br /> 어떤 분야의 전문가가 되기 위해서는
-        <br /> 최소한 1만 시간의 훈련이 필요하다는 법칙이다.
-      </h3>
+      <p class="message1">"연습은 어제의 당신보다 당신을 더 낫게 만든다."</p>
+      <p class="message2">
+        <strong>1만 시간의 법칙</strong>은<br />
+        어떤 분야의 전문가가 되기 위해서는 <br />
+        최소한 1만 시간의 훈련이 필요하다는 법칙이다.
+      </p>
 
-      <div className="form-box">
+      <form className="form-box">
         <div>
           나는
+          <label for="field" class="a11y-hidden">
+            분야
+          </label>
           <input
+            id="field"
+            name="field"
             type="text"
             placeholder="예)프로그래밍"
-            name="field"
             onChange={handleChangeInput}
           />
           전문가가 될 것이다.
         </div>
         <div>
           그래서 앞으로 매일 하루에
+          <label for="time" class="a11y-hidden">
+            시간
+          </label>
           <input
+            id="time"
+            name="time"
             type="number"
             placeholder="예)5시간"
-            name="time"
             onChange={handleChangeInput}
           />
           시간 씩 훈련할 것이다.
         </div>
-      </div>
 
-      <div className="submit-box">
-        <button type="submit" onClick={handleClick}>
-          나는 며칠 동안 훈련을 해야 1만 시간이 될까?
-        </button>
-      </div>
+        <div className="submit-btn-box">
+          <button type="submit" onClick={handleClick}>
+            나는 며칠 동안 훈련을 해야 1만 시간이 될까?
+          </button>
+        </div>
+      </form>
 
       <div
         className="loading-box"
@@ -135,7 +143,16 @@ function App() {
           ></div>
         </>
       )}
-    </div>
+
+      <div class="footer">
+        <img src="/img/logo.png" alt="" />
+        <p>
+          ※ 본 서비스 내 이미지 및 콘텐츠의 저작권은 주식회사 WeNiv에 있습니다.
+          <br />
+          수정 및 재배포, 무단 도용 시 법적인 문제가 발생할 수 있습니다.
+        </p>
+      </div>
+    </section>
   );
 }
 export default App;

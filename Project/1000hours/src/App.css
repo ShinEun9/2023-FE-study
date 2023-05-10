@@ -18,19 +18,6 @@
   font-style: normal;
 }
 
-body {
-  background-color: #5b2386;
-  font-family: "GmarketSansMedium";
-}
-
-h1 {
-  width: 564px;
-  height: 265px;
-  display: flex;
-  align-items: center;
-  background: url(../public/img/clock.png) no-repeat center;
-}
-
 .a11y-hidden {
   clip: rect(1px, 1px, 1px, 1px);
   clip-path: inset(50%);
@@ -42,28 +29,43 @@ h1 {
   position: absolute;
 }
 
-img {
+body {
+  background-color: #5b2386;
+  font-family: "GmarketSansMedium";
+}
+
+.title {
+  margin: 0 auto;
+  width: 564px;
+  height: 265px;
+  display: flex;
+  align-items: center;
+  background: url(../public/img/clock.png) no-repeat center;
+}
+
+.title img {
   width: 100%;
 }
 
-h2 {
+.message1 {
   font-family: "OTEnjoystoriesBA";
   color: #f5df4d;
   font-weight: 700;
   font-size: 36px;
+  margin: 66px 0 78px;
+  text-align: center;
 }
 
-h3 {
+.message2 {
   text-align: center;
-  min-width: 493px;
   font-weight: 700;
   font-size: 17px;
+  line-height: 24px;
   color: white;
-  max-width: 373px;
   background: url(../public/img/quotes.png) no-repeat center;
 }
 
-h3 strong {
+.message2 strong {
   font-size: 20px;
 }
 
@@ -73,10 +75,15 @@ h3 strong {
   font-weight: 400;
   font-size: 24px;
   line-height: 27px;
+  margin: 102px 0;
 }
 
-.form-box div:not(:last-child) {
+.form-box div:first-child {
   margin-bottom: 27px;
+}
+
+.form-box div:nth-child(2) {
+  margin-bottom: 115px;
 }
 
 input {
@@ -110,11 +117,11 @@ button.white {
   background-color: white;
 }
 
-.submit-box {
+.submit-btn-box {
   position: relative;
 }
 
-.submit-box::after {
+.submit-btn-box::after {
   content: "";
   position: absolute;
   bottom: -20px;
@@ -129,7 +136,7 @@ button.white {
   height: 100px;
 }
 
-img.infinite_rotating_logo {
+.infinite_rotating_logo {
   animation: rotate_image 1s linear infinite;
 }
 
@@ -145,16 +152,25 @@ img.infinite_rotating_logo {
   color: #ffffff;
   font-weight: 400;
   text-align: center;
+  vertical-align: middle;
 }
 
-.result-box div:not(:last-child) {
+.result-box div:first-child {
   margin-bottom: 17px;
+}
+
+.result-box div:nth-child(2) {
+  margin-bottom: 127px;
 }
 
 .result-box strong {
   font-weight: 700;
   font-size: 72px;
   margin: 0px 12px;
+}
+
+.btns-box button:first-child {
+  margin-right: 18px;
 }
 
 .popup {
@@ -201,4 +217,20 @@ img.infinite_rotating_logo {
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
   /* display: none; */
+}
+
+.footer {
+  margin: 136px 0 100px;
+  text-align: center;
+}
+.footer img {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.footer p {
+  font-weight: 400;
+  font-size: 12px;
+  text-align: center;
+  color: white;
 }
