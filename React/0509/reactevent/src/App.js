@@ -33,6 +33,7 @@ function App() {
       {!logined ? <Login user={user} setLogined={setLogined} /> : <HomePage />}
       <button
         onClick={() => {
+          document.documentElement.style.overflow = "hidden";
           setModalShow(true);
         }}
       >

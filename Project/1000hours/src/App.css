@@ -132,11 +132,13 @@ button.white {
 }
 
 .loading-box {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
 }
 
 .infinite_rotating_logo {
+  width: 100%;
   animation: rotate_image 1s linear infinite;
 }
 
@@ -147,7 +149,6 @@ button.white {
 }
 
 .result-box {
-  display: "none";
   font-size: 24px;
   color: #ffffff;
   font-weight: 400;
@@ -184,11 +185,10 @@ button.white {
   box-sizing: border-box;
   border-radius: 20px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* display: none; */
   z-index: 100;
   color: #5b2386;
 }
@@ -208,15 +208,13 @@ button.white {
   margin-bottom: 20px;
 }
 
-/* 검은배경 */
-.dim {
+.popup + .dim {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
-  /* display: none; */
 }
 
 .footer {
