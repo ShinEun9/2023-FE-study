@@ -13,6 +13,8 @@ function closePopup() {
 
 openBtn.addEventListener("click", openPopup);
 closeBtn.addEventListener("click", closePopup);
+dim.addEventListener("click", closePopup);
+
 closeBtn.addEventListener("keydown", function (e) {
   // console.log(e.key)
   if (!e.shiftKey && e.key === "Tab") {
@@ -31,8 +33,12 @@ firstEl.addEventListener("keydown", function (e) {
   }
 });
 
-dim.addEventListener("click", closePopup);
+window.addEventListener("keydown", (e) => {
+  // esc 버튼 눌렀을 때 popup 꺼지게
+  if (article.classList.value === "popup active" && e.key === "Escape") {
+    closePopup();
+  }
+});
 
-// esc눌렀을 때
 // wai area
 // 툴팁
