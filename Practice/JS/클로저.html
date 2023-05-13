@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클로저</title>
+
+</head>
+
+<body>
+    <script>
+        // var fruits = ['apple', 'banana', 'peach'];
+        // var $ul = document.createElement('ul');
+        // fruits.forEach(function (fruit) {
+        //     var $li = document.createElement('li');
+        //     $li.innerText = fruit;
+        //     $li.addEventListener('click', function () {
+        //         alert('your choice is ' + fruit);
+        //     })
+        //     $ul.appendChild($li);
+        // })
+        // document.body.appendChild($ul)
+
+        // var fruits = ['apple', 'banana', 'peach'];
+        // var $ul = document.createElement('ul');
+        // var alertFruit = function (fruit) {
+        //     alert('your choice is ' + fruit);
+        //     console.log(this) // li
+        // }
+        // fruits.forEach(function (fruit) {
+        //     var $li = document.createElement('li');
+        //     $li.innerText = fruit;
+        //     $li.addEventListener('click', alertFruit);
+        //     $ul.appendChild($li);
+        // })
+        // document.body.appendChild($ul)
+        // alertFruit(fruits[1]);
+
+        // var fruits = ['apple', 'banana', 'peach'];
+        // var $ul = document.createElement('ul');
+        // var alertFruit = function (fruit) {
+        //     alert('your choice is ' + fruit);
+        //     console.log(this) // window
+        // }
+        // fruits.forEach(function (fruit) {
+        //     var $li = document.createElement('li');
+        //     $li.innerText = fruit;
+        //     $li.addEventListener('click', alertFruit.bind(null, fruit));
+        //     $ul.appendChild($li);
+        // })
+        // document.body.appendChild($ul)
+        // alertFruit(fruits[1]);
+
+        var fruits = ['apple', 'banana', 'peach'];
+        var $ul = document.createElement('ul');
+        var alertFruitBuilder = function (fruit) {
+            return function () {
+                alert('your choice is ' + fruit);
+                console.log(this);
+            }
+        }
+        fruits.forEach(function (fruit) {
+            var $li = document.createElement('li');
+            $li.innerText = fruit;
+            $li.addEventListener('click', alertFruitBuilder(fruit));
+            $ul.appendChild($li);
+        })
+        document.body.appendChild($ul)
+
+    </script>
+</body>
+
+</html>
