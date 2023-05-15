@@ -5,19 +5,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>클로저</title>
+    <title>콜백지옥</title>
 
 </head>
 
 <body>
-    <script>
+    <script type="module">
         // var fruits = ['apple', 'banana', 'peach'];
         // var $ul = document.createElement('ul');
         // fruits.forEach(function (fruit) {
         //     var $li = document.createElement('li');
         //     $li.innerText = fruit;
         //     $li.addEventListener('click', function () {
-        //         alert('your choice is ' + fruit);
+        //         alert('your choice is ' + fruit); // 클로저
         //     })
         //     $ul.appendChild($li);
         // })
@@ -25,14 +25,14 @@
 
         // var fruits = ['apple', 'banana', 'peach'];
         // var $ul = document.createElement('ul');
-        // var alertFruit = function (fruit) {
+        // var alertFruit = function (fruit) { // 콜백함수에 국한되지 않는 경우 반복을 줄이기 위해 외부로 분리
         //     alert('your choice is ' + fruit);
         //     console.log(this) // li
         // }
         // fruits.forEach(function (fruit) {
         //     var $li = document.createElement('li');
         //     $li.innerText = fruit;
-        //     $li.addEventListener('click', alertFruit);
+        //     $li.addEventListener('click', alertFruit); // 콜백함수의 인자에 대한 제어권을 addEventListener가 가진 상태이며, addEventListener는 콜백함수를 호출할 때 첫번째 인자에 이벤트 객체를 주입한다.
         //     $ul.appendChild($li);
         // })
         // document.body.appendChild($ul)
@@ -40,35 +40,112 @@
 
         // var fruits = ['apple', 'banana', 'peach'];
         // var $ul = document.createElement('ul');
-        // var alertFruit = function (fruit) {
+        // var alertFruit = function (fruit, a) {
         //     alert('your choice is ' + fruit);
-        //     console.log(this) // window
+        //     console.log(this);
+        //     console.log(a) // event
         // }
         // fruits.forEach(function (fruit) {
         //     var $li = document.createElement('li');
         //     $li.innerText = fruit;
-        //     $li.addEventListener('click', alertFruit.bind(null, fruit));
+        //     $li.addEventListener('click', alertFruit.bind(null, fruit)); // 이벤트 객체가 인자로 넘어오는 순서가 바뀌는 점, 함수 내부에서의 this가 원래의 그것과 달라지는 점을 감안
         //     $ul.appendChild($li);
         // })
         // document.body.appendChild($ul)
         // alertFruit(fruits[1]);
 
-        var fruits = ['apple', 'banana', 'peach'];
-        var $ul = document.createElement('ul');
-        var alertFruitBuilder = function (fruit) {
-            return function () {
-                alert('your choice is ' + fruit);
-                console.log(this);
-            }
-        }
-        fruits.forEach(function (fruit) {
-            var $li = document.createElement('li');
-            $li.innerText = fruit;
-            $li.addEventListener('click', alertFruitBuilder(fruit));
-            $ul.appendChild($li);
-        })
-        document.body.appendChild($ul)
+        // var fruits = ['apple', 'banana', 'peach'];
+        // var $ul = document.createElement('ul');
+        // var alertFruitBuilder = function (fruit) {
+        //     return function () {
+        //         alert('your choice is ' + fruit);
+        //         console.log(this);
+        //     }
+        // }
+        // fruits.forEach(function (fruit) {
+        //     var $li = document.createElement('li');
+        //     $li.innerText = fruit;
+        //     $li.addEventListener('click', alertFruitBuilder(fruit));
+        //     $ul.appendChild($li);
+        // })
+        // document.body.appendChild($ul)
 
+
+        // function randomTime() {
+        //     return Math.floor(Math.random() * 5) * 1000;
+        // }
+
+        // function getChicken() {
+        //     return new Promise((resolve, reject) => {
+        //         setTimeout(() => {
+        //             resolve('동묘시장 -> chicken')
+        //         }, randomTime());
+        //     })
+        // }
+
+        // function getEgg() {
+        //     return new Promise((resolve, reject) => {
+        //         setTimeout(() => {
+        //             resolve('동묘시장 -> chicken -> egg');
+        //         }, randomTime());
+        //     })
+        // }
+
+        // function getMeal() {
+        //     return new Promise((resolve, reject) => {
+        //         setTimeout(() => {
+        //             resolve('동묘시장 -> chicken -> egg -> fried egg');
+        //         }, randomTime());
+        //     })
+        // }
+
+
+        // getChicken()
+        //     .then((data) => {
+        //         console.log(data);
+        //         return getEgg();
+        //     })
+        //     .then((data) => {
+        //         console.log(data);
+        //         return getMeal()
+        //     })
+        //     .then((data) => console.log(data));
+
+
+        // (async function () {
+        //     const chicken = await getChicken();
+        //     console.log(chicken);
+        //     const egg = await getEgg();
+        //     console.log(egg);
+        //     const meal = await getMeal();
+        //     console.log(meal)
+        // })()
+
+        // const chicken = await getChicken();
+        // console.log(chicken);
+        // const egg = await getEgg();
+        // console.log(egg);
+        // const meal = await getMeal();
+        // console.log(meal)
+
+
+        (
+            function () {
+                var count = 0;
+                var button = document.createElement('button');
+                button.innerText = 'click';
+
+                var clickHandler = function () {
+                    console.log(++count, 'times clicked');
+                    if (count >= 10) {
+                        button.removeEventListener('click', clickHandler);
+                        clickHandler = null;
+                    }
+                }
+                button.addEventListener('click', clickHandler)
+                document.body.appendChild(button);
+            }
+        )();
     </script>
 </body>
 

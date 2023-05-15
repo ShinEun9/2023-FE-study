@@ -6,6 +6,7 @@ import {
   Link,
   Outlet,
   useLocation,
+  useParams,
 } from "react-router-dom";
 
 export default function App2() {
@@ -43,9 +44,9 @@ function UserPage() {
   return (
     <div>
       UserPage
-      <Link to="/users/coupon">CouponPage</Link>
-      <Link to="/users/question">QuestionPage</Link>
-      <Link to="/users/notice">NoticePage</Link>
+      <Link to="./coupon">CouponPage</Link>
+      <Link to="./question">QuestionPage</Link>
+      <Link to="./notice">NoticePage</Link>
     </div>
   );
 }
@@ -57,18 +58,15 @@ function ProductDetailPage() {
     <div>
       ProductDetailPage {path}
       <br />
-      <Link to={`/products/${path}/notice`}>
-        {path} ProductDetailNoticePage
-      </Link>
+      <Link to={`./notice`}>{path} ProductDetailNoticePage</Link>
     </div>
   );
 }
 
 function ProductDetailNoticePage() {
-  const location = useLocation();
-  const path = location.pathname.split("/")[2];
+  const id = useParams().id;
 
-  return <div>{path} ProductDetailNoticePage </div>;
+  return <div>{id} ProductDetailNoticePage </div>;
 }
 
 function CartPage() {
