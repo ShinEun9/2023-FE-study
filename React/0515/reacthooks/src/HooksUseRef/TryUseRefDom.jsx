@@ -36,6 +36,9 @@ const TryUseRefDom = () => {
       <button type="submit" style={{ width: "100px" }} onClick={inputCheck}>
         로그인
       </button>
+
+      {/* <span>입력한 이메일 : {emailInput.current.value}</span> */}
+
       <span>입력한 이메일 : {emailValue}</span>
       <span>입력한 비밀번호 : {pwValue}</span>
     </form>

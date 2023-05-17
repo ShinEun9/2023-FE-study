@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클로저- 부분적용함수 디바운스</title>
+    <style>
+        body {
+            height: 10000vh;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        // debounce는 짧은 시간동안 동일한 이벤트가 많이 발생한 경우 이를 전부 처리하지 않고 처음 또는 마지막에 발생한 이벤트에 대해 한번만 처리하는 것.
+        var debounce = function (eventName, func, wait) {
+            var timeoutId = null;
+            return function (event) {
+                var self = this;
+                console.log(eventName, 'event발생');
+                clearTimeout(timeoutId);
+                timeoutId = setTimeout(func.bind(self, event), wait);
+            }
+        }
+
+        var moveHandler = function (e) {
+            console.log('move event 처리');
+        }
+
+        var wheelHandler = function (e) {
+            console.log('wheel event 처리');
+        }
+
+        document.body.addEventListener('mousemove', debounce('move', moveHandler, 500));
+        document.body.addEventListener('mousewheel', debounce('wheel', wheelHandler, 700));
+    </script>
+</body>
+
+</html>
