@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>부분적용함수</title>
+</head>
+
+<body>
+
+    <script>
+        // var add = function () {
+        //     console.log(this)
+        //     var result = 0;
+        //     for (var i = 0; i < arguments.length; i++) {
+        //         result += arguments[i];
+        //     }
+
+        //     return result;
+        // }
+
+        // var addPartial = add.bind(null, 1, 2, 3, 4, 5);
+        // console.log(addPartial(6, 7, 8, 9, 10));
+
+        var add = function () {
+            console.log(this)
+            var result = 0;
+            for (var i = 0; i < arguments.length; i++) {
+                result += arguments[i];
+            }
+
+            return result;
+        }
+
+        var addPartial = add.bind(null, 1, 2, 3, 4, 5);
+        console.log(addPartial(6, 7, 8, 9, 10));
+
+        var objA = {
+            name: "a",
+            addMethod: add
+        }
+
+        var objB = {
+            name: "b",
+            addMethod: addPartial
+        }
+
+        // 메서드로서 호출했을 때 this는 함수앞의 객체
+        console.log(objA.addMethod(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+        // 하지만 objB는 addPartial을 addMethod로 넣었기 때문에 -> Window 
+        console.log(objB.addMethod(6, 7, 8, 9, 10))
+    </script>
+</body>
+
+</html>
