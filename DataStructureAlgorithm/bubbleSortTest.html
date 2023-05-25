@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bubbleSortTest</title>
+</head>
+
+<body>
+    <script>
+        // 배열이 하나 주어졌을 때 [3,2,4,5,2,1,0,3] -> 2
+        // 가장 먼저 반복되는 원소의 값을 반환한다
+
+        function test(arr) {
+            const useHash = {};
+
+            for (let i = 0; i < arr.length; i++) {
+                if (useHash[arr[i]]) {
+                    return arr[i];
+                }
+                else {
+                    useHash[arr[i]] = i;
+                }
+            }
+            return "없음"
+        }
+
+
+        function test2(arr) {
+            const makeSet = new Set();
+
+            for (let i = 0; i < arr.length; i++) {
+                if (makeSet.has(arr[i])) {
+                    return arr[i];
+                }
+                else {
+                    makeSet.add(arr[i])
+                }
+            }
+            return "없음"
+        }
+
+        console.log(test([3, 2, 4, 5, 2, 1, 0, 3]))
+        console.log(test2([3, 2, 4, 5, 2, 1, 0, 3]))
+
+    </script>
+</body>
+
+</html>
