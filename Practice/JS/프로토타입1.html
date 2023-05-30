@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        var NewConstructor = function () {
+            console.log('this is new constructor')
+        }
+
+        var dataTypes = [1, 'test', true, function () { },]
+
+        dataTypes.forEach(function (d) {
+            d.constructor = NewConstructor;
+
+            console.log(d.constructor, '&', d.constructor.name, '&', d instanceof NewConstructor);
+            // constructor를 변경하더라도 참조하는 대상이 변경될 뿐 이미 만들어진 인스턴스의 원형이 바뀐다거나 데이터 타입이 변하는것은 아니다.
+        })
+
+        var Person = function (name) {
+            this.name = name;
+        }
+
+        var p1 = new Person('사람1');
+        console.log(p1.__proto__.name);
+        console.log(p1.name);
+
+        var p1Proto = Object.getPrototypeOf(p1);
+        console.log(p1Proto);
+        console.log(Person.prototype === p1.__proto__)
+        console.log(p1Proto === Person.prototype)
+        console.log(p1Proto === p1.__proto__)
+
+        var p2 = p1Proto.constructor('사람2');
+
+    </script>
+</body>
+
+</html>
