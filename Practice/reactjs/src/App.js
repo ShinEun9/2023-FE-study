@@ -1,3 +1,5 @@
+import "./App.css";
+
 function App() {
   const hello = "true";
   return (
@@ -11,6 +13,8 @@ function App() {
       <div>{0}</div>
       <div>{NaN}</div>
       <div>{""}</div>
+      <input type="text" />
+      <input type="text" />
     </div>
   );
 }
