@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { appAuth } from "../firebase/config";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { useAuthContext } from "./useContext";
+import { useAuthContext } from "./useAuthContext";
 
 // 회원 가입을 진행하는 훅
 export const useSignup = () => {
