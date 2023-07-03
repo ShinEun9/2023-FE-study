@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>점진적 향상기법과 우아한 성능저하</title>
+    <style>
+        .layout-grid {
+            display: grid;
+        }
+
+        .layout-flex {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ! 점진적향상기법 중 하나 -->
+    <!-- 이미지를 렌더링하는 태그. 환경에 맞게, 브라우저에 가장 어울리는 이미지를 선택할 수 있도록 만들어주는 요소. picture라는 요소를 인터넷 익스플로러는 모름. 레거시 브라우저는 알수없는 태그를 봤을 때 인라인 요소로 처리해버림(span요소처럼 처리 따라서 picture, source는 작동하지 않음. img 태그만 작동)-->
+    <picture>
+        <source srcset="test.webp" type="image/webp">
+        <source srcset="test.avif" type="image/avif">
+        <img src="test.jpeg" alt="테스트 이미지입니다.">
+    </picture>
+
+    <script>
+        const container = document.querySelector('.container');
+        // style객체: container 요소가 사용할 수 있는 모든 스타일 속성을 가지고 있는 객체
+        if (container.style.grid !== undefined) {
+            container.classList.add('.layout-grid');
+        } else {
+            container.classList.add('.layout-flex');
+        }
+    </script>
+
+    <!-- ! 우아한 성능저하: video, canvas와 같이 대체할 수 없는 기술을 사용할 때 씀 -->
+    <!-- 만약에 브라우저가 video tag자체를 지원하지 않으면? -->
+    <video>
+        <source src="test.mp4" type="video/mp4">
+        <source src="test.webm" type="video/webm">
+        <p>
+            사용하시는 브라우저가 비디오를 지원하지 않습니다. 업그레이드 해주세요.
+            <a href="최신브라우저링크">여기에서 최신브라우저를 다운받으세요</a>
+        </p>
+    </video>
+    <script>
+        const canvas = document.createElment('.canvas');
+        const strong = document.createElement('strong');
+        const ctx = convas.getContext('webgl');
+
+        if (ctx) {
+            document.body.append(canvas)
+        }
+        else {
+            strong.textContent = '이 사이트는 구형 브라우저에서 정상적으로 작동하지 않습니다!';
+            document.body.append(strong);
+        }
+    </script>
+</body>
+
+</html>
