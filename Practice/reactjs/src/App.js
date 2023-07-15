@@ -1,20 +1,8 @@
-import "./App.css";
-
+import Memoization from "./Memoization/Memoization";
 function App() {
-  const hello = "true";
   return (
     <div>
-      <div>{true}</div>
-      <div>false</div>
-      <div>{true}</div>
-      <div>{null}</div>
-      <div>{undefined}</div>
-      <div>{Infinity}</div>
-      <div>{0}</div>
-      <div>{NaN}</div>
-      <div>{""}</div>
-      <input type="text" />
-      <input type="text" />
+      <Memoization />
     </div>
   );
 }
