@@ -194,7 +194,6 @@ export default function Signup() {
             value={password}
             onChange={handleData}
           />
-
           <label className="label-style" htmlFor="user-nickname">
             닉네임
           </label>
@@ -205,10 +204,10 @@ export default function Signup() {
             value={displayName}
             onChange={handleData}
           />
-
           <button className="black-btn" type="submit">
             회원가입
           </button>
+          {error && <strong>{error}</strong>}{" "}
         </form>
       </main>
 

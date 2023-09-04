@@ -1,6 +1,12 @@
 import { useReducer } from "react";
 import { appFireStore, timeStamp } from "../firebase/config";
-import { collection, addDoc, deleteDoc, doc } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  deleteDoc,
+  doc,
+  updateDoc,
+} from "firebase/firestore";
 
 // document : firestore에 document의 생성을 요청하면 우리가 생성한 document를 반환함
 // isPending: 통신중인지 아닌지 상태
@@ -25,7 +31,13 @@ const storeReducer = (state, action) => {
       };
     case "deleteDoc":
       return { isPending: false, document: null, success: true, error: null };
-
+    case "editDoc":
+      return {
+        isPending: false,
+        document: action.payload,
+        success: true,
+        error: null,
+      };
     case "error":
       return {
         isPending: false,
@@ -70,5 +82,20 @@ export const useFirestore = (transaction) => {
     }
   };
 
-  return { addDocument, deleteDocument, response };
+  // 컬렉션에서 문서를 수정합니다.
+  const editDocument = async (id, inputs) => {
+    dispatch({ type: "isPending" });
+    try {
+      // setDoc(doc(db, 컬렉션 이름, 아이디), 데이터)
+      const docRef = await updateDoc(doc(colRef, id), {
+        title: inputs.title,
+        text: inputs.text,
+      });
+      dispatch({ type: "editDoc", payload: docRef });
+    } catch (e) {
+      dispatch({ type: "error", payload: e.message });
+    }
+  };
+
+  return { addDocument, deleteDocument, editDocument, response };
 };

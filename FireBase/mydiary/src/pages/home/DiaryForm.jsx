@@ -1,17 +1,17 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useFirestore } from "../../hooks/useFirestore";
 import styles from "./Home.module.css";
+import { useFormContext } from "../../hooks/useFormContext";
 
 export default function DiaryForm({ uid }) {
-  const [title, setTitle] = useState("");
-  const [text, setText] = useState("");
   const { addDocument, response } = useFirestore("diary");
+  const { title, text, dispatch } = useFormContext();
 
   const handleData = (event) => {
     if (event.target.id === "diary-title") {
-      setTitle(event.target.value);
+      dispatch({ type: "title", payload: event.target.value });
     } else if (event.target.id === "diary-content") {
-      setText(event.target.value);
+      dispatch({ type: "text", payload: event.target.value });
     }
   };
 
@@ -27,8 +27,7 @@ export default function DiaryForm({ uid }) {
   useEffect(() => {
     if (response.success) {
       console.log(response);
-      setTitle("");
-      setText("");
+      dispatch({ type: "deleteAll" });
     }
   }, [response.success]);
 
@@ -39,6 +38,7 @@ export default function DiaryForm({ uid }) {
       </label>
       <input
         onChange={handleData}
+        value={title}
         className="input-style"
         type="text"
         id="diary-title"
@@ -49,6 +49,7 @@ export default function DiaryForm({ uid }) {
       </label>
       <textarea
         onChange={handleData}
+        value={text}
         className={styles["diary-textarea"]}
         id="diary-content"
         placeholder="오늘의 비밀은 무엇인가요?"
