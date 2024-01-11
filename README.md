@@ -21,7 +21,7 @@ HTML, CSS, JS, TS, React, Webpack 등을 공부하고 기록하는 레포지토�
   
   |데스크탑|반응형|
   |---|---|
-  |![ezgif-2-d3d4099aa5](https://github.com/ShinEun9/2023-frontend-study/assets/75666099/a239c79c-c05a-4327-871d-12d3d9996b82)|![ezgif-2-c192582f67](https://github.com/ShinEun9/2023-frontend-study/assets/75666099/c7ac3e6a-a123-4d00-8b9d-54d45586d8e1)|
+  |![1](https://github.com/ShinEun9/2023-FE-study/assets/75666099/843495d9-d50a-4ec5-a2b5-812b07194aaa)|![265373923-c7ac3e6a-a123-4d00-8b9d-54d45586d8e1](https://github.com/ShinEun9/2023-FE-study/assets/75666099/4c4f142f-cd35-4c71-9e85-00fb08f4fb17)|
 
 ---
 
@@ -34,23 +34,7 @@ HTML, CSS, JS, TS, React, Webpack 등을 공부하고 기록하는 레포지토�
 
   |질문페이지|결과페이지|
   |---|---|
-  |<img width="942" alt="image" src="https://github.com/ShinEun9/2023-frontend-study/assets/75666099/002b5765-5922-4762-8fd2-179e9405c7af">|<img width="939" alt="image" src="https://github.com/ShinEun9/2023-frontend-study/assets/75666099/aa988e87-8322-4c59-b98a-17fda9ca8ce8">|
-
----
-### 3) ⭐ MyDiary
-- 경로: [/FireBase/mydiary](https://github.com/ShinEun9/2023-frontend-study/tree/main/FireBase/mydiary)
-- 사이트 주소: https://mydiary-679e4.web.app
-- FireBase와 ReactJS를 사용하여 로그인, 회원가입, 일기 작성/삭제 기능 구현 / 반응형 구현
-- **로그인State, 일기FormState, dispatch 함수 등을 Context API를 사용하여 저장하고, 여러가지 Custom Hook을 통해 로직 추상화**
-- test 계정
-   ```
-  id: test@naver.com
-  password: test1234
-    ```
-
-  |로그인페이지|일기장페이지|
-  |---|---|
-  |<img width="957" alt="image" src="https://github.com/ShinEun9/2023-frontend-study/assets/75666099/3eef07f2-8427-4c1c-aa32-80fc534cd62c">|<img width="939" alt="image" src="https://github.com/ShinEun9/2023-frontend-study/assets/75666099/ec86e09e-1375-49be-9e30-bb66c003abb5">|
+  |<img width="942" alt="3" src="https://github.com/ShinEun9/2023-FE-study/assets/75666099/181316d5-7633-4e4c-bf21-9e3d182df8b5">|<img width="939" alt="4" src="https://github.com/ShinEun9/2023-FE-study/assets/75666099/1515df74-50a6-45d0-9884-03b87a649301">|
 
 ---
 ### 4) 서버사이드 리액트 구현하기
